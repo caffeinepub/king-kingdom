@@ -1,0 +1,198 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 19,
+  "summary": "Build a marketing website for 'King Kingdom | Complete Construction Solutions' (construction company) including sections like Home, About, Services, Projects/Portfolio, Contact, with WhatsApp/call CTAs and supporting visuals/project photos.",
+  "architectural_notes": [
+    "Static single-page site using HTML/CSS with responsive layout; minimal JS for WhatsApp form submission (opens wa.me with prefilled text).",
+    "Primary CTAs: Call Now (tel:) and WhatsApp (wa.me) in header and floating button; contact form routes to WhatsApp.",
+    "Use provided social links (YouTube, Facebook, Instagram) with recognizable icons in the footer; links open in a new tab with rel=\"noopener noreferrer\".",
+    "Add a construction-themed background image to the Home/Hero section and add relevant service/work visuals across sections to elevate the design to an ultra-premium look."
+  ],
+  "known_issues": [
+    "Deployment/build is failing (deployment unsuccessful) and must be resolved to deliver working results.",
+    "Logo has been removed per user request; ensure all UI references to the logo asset are removed/updated to prevent missing-asset errors and broken header branding."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-single-page-marketing-website-for-king-kingdom-complete-construction-solutions-that-implements-the-provided-html-structure-and-section-content-in-react-typescript-tailwind-top-bar-sticky-header-nav-hero-highlights-about-services-portfolio-projects-why-choose-process-contact-footer-all-user-facing-text-must-be-in-english-and-match-the-provided-copy",
+      "title": "Create a responsive single-page marketing website for “King Kingdom | Complete Construction Solutions” that implements the provided HTML structure and section content in React + TypeScript + Tailwind (top bar, sticky header/nav, hero, highlights, about, services, portfolio/projects, why choose, process, contact, footer). All user-facing text must be in English and match the provided copy.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-primary-calls-to-action-and-contact-interactions-1-call-now-buttons-use-tel-917734920728-2-whatsapp-buttons-open-https-wa-me-917734920728-in-a-new-tab-3-the-contact-form-builds-a-whatsapp-message-from-name-phone-service-message-and-opens-https-wa-me-917734920728-text-encoded-message-in-a-new-tab-on-submit",
+      "title": "Implement the primary calls-to-action and contact interactions: (1) “Call Now” buttons use tel:+917734920728, (2) WhatsApp buttons open https://wa.me/917734920728 in a new tab, (3) the contact form builds a WhatsApp message from Name/Phone/Service/Message and opens https://wa.me/917734920728?text=<encoded message> in a new tab on submit.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-and-use-generated-visual-assets-to-replace-placeholders-and-elevate-the-site-include-a-brand-logo-mark-a-hero-construction-themed-visual-and-real-looking-project-photos-for-all-portfolio-cards-store-assets-as-static-files-under-frontend-public-assets-generated-and-reference-them-directly-from-the-frontend-do-not-route-images-through-the-backend",
+      "title": "Add and use generated visual assets to replace placeholders and elevate the site: include a brand logo/mark, a hero construction-themed visual, and real-looking project photos for all portfolio cards. Store assets as static files under frontend/public/assets/generated and reference them directly from the frontend (do not route images through the backend).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-visual-theme-consistent-with-a-premium-construction-brand-using-a-navy-forward-palette-no-blue-purple-gradients-unless-they-are-navy-based-strong-typography-hierarchy-card-based-layout-and-subtle-shadows-matching-the-provided-design-intent-sticky-translucent-header-rounded-cards-light-background-ensure-consistent-spacing-and-accessible-contrast-across-sections",
+      "title": "Apply a cohesive visual theme consistent with a premium construction brand using a navy-forward palette (no blue/purple gradients unless they are navy-based), strong typography hierarchy, card-based layout, and subtle shadows—matching the provided design intent (sticky translucent header, rounded cards, light background). Ensure consistent spacing and accessible contrast across sections.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-user-provided-logo-from-the-uploaded-image-as-a-static-asset-under-frontend-public-assets-generated-and-update-the-site-branding-to-use-it-consistently-at-minimum-in-the-sticky-header-brand-area",
+      "title": "Add the user-provided logo (from the uploaded image) as a static asset under frontend/public/assets/generated and update the site branding to use it consistently (at minimum in the sticky header brand area).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-social-media-links-to-the-website-ui-include-recognizable-social-icons-and-accessible-link-labels-in-english-and-ensure-links-open-in-a-new-tab-with-rel-noopener-noreferrer-place-the-social-links-in-the-footer-and-optionally-the-top-bar-without-changing-existing-phone-whatsapp-email-interactions",
+      "title": "Add social media links to the website UI (include recognizable social icons and accessible link labels in English), and ensure links open in a new tab with rel=\"noopener noreferrer\". Place the social links in the footer (and optionally the top bar) without changing existing phone/WhatsApp/email interactions.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-premium-quality-clean-centered-square-logo-asset-derived-from-the-uploaded-image-img-20260213-wa0001-jpg-and-use-it-as-the-primary-site-logo-where-the-current-logo-is-displayed-including-the-sticky-header-brand-area",
+      "title": "Create a premium-quality, clean, centered square logo asset derived from the uploaded image IMG-20260213-WA0001.jpg, and use it as the primary site logo where the current logo is displayed (including the sticky header brand area).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-activate-the-provided-social-media-links-youtube-facebook-instagram-in-the-existing-social-links-configuration-so-the-footer-social-icons-render-and-open-the-correct-urls-in-a-new-tab",
+      "title": "Activate the provided social media links (YouTube, Facebook, Instagram) in the existing social links configuration so the footer social icons render and open the correct URLs in a new tab.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-keep-using-the-existing-logo-image-assets-generated-king-kingdom-logo-legend-legacy-dim-512x512-png-and-adjust-only-its-layout-styling-in-the-sticky-header-so-it-looks-properly-set-centered-not-stretched-cropped-visually-aligned-with-the-brand-text-and-responsive-on-small-screens",
+      "title": "Keep using the existing logo image (/assets/generated/king-kingdom-logo-legend-legacy.dim_512x512.png) and adjust only its layout/styling in the sticky header so it looks properly set: centered, not stretched/cropped, visually aligned with the brand text, and responsive on small screens.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-premium-quality-clean-centered-square-logo-image-derived-from-the-newly-uploaded-file-img-20260213-wa0001-1-jpg-and-use-it-as-the-primary-site-logo-wherever-the-logo-is-displayed-including-the-sticky-header-brand-area-without-stretching-cropping-and-with-crisp-rendering-on-mobile-and-desktop",
+      "title": "Create a premium-quality, clean, centered square logo image derived from the newly uploaded file IMG-20260213-WA0001-1.jpg, and use it as the primary site logo wherever the logo is displayed (including the sticky header brand area) without stretching/cropping and with crisp rendering on mobile and desktop.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-hero-home-section-background-styling-with-a-full-width-construction-related-photo-background-and-a-readable-overlay-e-g-dark-navy-scrim-so-the-existing-hero-headings-and-buttons-remain-highly-legible-and-the-section-looks-ultra-premium",
+      "title": "Replace the current Hero/Home section background styling with a full-width construction-related photo background and a readable overlay (e.g., dark/navy scrim) so the existing hero headings and buttons remain highly legible and the section looks ultra-premium.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-construction-work-service-related-photos-or-premium-visuals-throughout-the-site-sections-especially-services-and-about-projects-already-has-photos-so-each-service-work-area-is-supported-by-relevant-imagery-and-the-overall-website-feels-ultra-premium",
+      "title": "Add construction/work/service-related photos or premium visuals throughout the site sections (especially Services and About; Projects already has photos) so each service/work area is supported by relevant imagery and the overall website feels ultra-premium.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-diagnose-and-fix-the-current-deployment-build-failure-so-the-project-can-be-deployed-successfully-and-ensure-the-deployed-app-loads-the-king-kingdom-single-page-marketing-site-without-runtime-errors",
+      "title": "Diagnose and fix the current deployment/build failure so the project can be deployed successfully, and ensure the deployed app loads the King Kingdom single-page marketing site without runtime errors.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-premium-quality-clean-centered-square-logo-image-derived-from-the-newly-uploaded-file-img-20260213-wa0001-2-jpg-add-it-as-a-static-asset-under-frontend-public-assets-generated-and-update-the-site-branding-to-use-it-as-the-primary-logo-wherever-the-current-logo-is-displayed-at-minimum-in-the-sticky-header-brand-area",
+      "title": "Create a premium-quality, clean, centered square logo image derived from the newly uploaded file IMG-20260213-WA0001-2.jpg, add it as a static asset under frontend/public/assets/generated, and update the site branding to use it as the primary logo wherever the current logo is displayed (at minimum in the sticky header brand area).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-logo-image-from-the-sticky-header-brand-area-so-the-site-displays-a-text-only-brand-king-kingdom-and-complete-construction-solutions-without-any-logo-mark-image",
+      "title": "Remove the logo image from the sticky header brand area so the site displays a text-only brand (\"King Kingdom\" and \"Complete Construction Solutions\") without any logo/mark image.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-there-are-no-remaining-ui-references-that-attempt-to-load-the-removed-logo-asset-s-preventing-broken-images-or-console-errors-related-to-missing-logo-files",
+      "title": "Ensure there are no remaining UI references that attempt to load the removed logo asset(s), preventing broken images or console errors related to missing logo files.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-sticky-header-brand-area-frontend-src-components-king-kingdom-headernav-tsx-to-display-the-new-logo-image-alongside-the-existing-brand-text-king-kingdom-and-complete-construction-solutions-ensuring-the-logo-is-not-stretched-or-cropped-and-remains-well-aligned-and-responsive-on-small-screens",
+      "title": "Update the sticky header brand area (frontend/src/components/king-kingdom/HeaderNav.tsx) to display the new logo image alongside the existing brand text (\"King Kingdom\" and \"Complete Construction Solutions\"), ensuring the logo is not stretched or cropped and remains well-aligned and responsive on small screens.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create the King Kingdom marketing website (single-page layout with top bar, sticky nav, hero, about, services, portfolio, why choose, process, contact, footer).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add visuals/graphics and real-looking project photos for the portfolio section (replace placeholder 'PROJECT' blocks).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Provide brand visuals (e.g., logo/mark, hero/section illustrations) consistent with the navy construction theme.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Upgrade the site to an ultra-premium look by adding construction-related photos/visuals: a construction-themed homepage background image and relevant work/service visuals throughout all sections.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add the newly provided logo to the site branding (restore a logo image in the header/brand area and ensure it displays correctly without stretching/cropping).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add the newly uploaded logo (download-1.webp) as a static image asset under frontend/public/assets/generated and create a crisp, centered, square logo file suitable for web use.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "King Kingdom",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

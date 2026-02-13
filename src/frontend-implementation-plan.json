@@ -1,0 +1,40 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add new square logo asset and display it in header branding",
+  "requirements": [
+    {
+      "id": "REQ-17",
+      "summary": "Create a crisp, centered, square logo image derived from download-1.webp and store it as a static generated asset.",
+      "acceptanceCriteria": [
+        "A new logo image file exists under frontend/public/assets/generated.",
+        "The created logo is square, centered, and visually clean (no unintended padding/cropping), and renders crisply on mobile and desktop.",
+        "The app builds successfully after adding the new asset."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/king-kingdom-logo-from-upload-1.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add a processed, web-ready square logo image generated from the provided download-1.webp; ensure the subject is centered with no unintended padding/cropping and that it remains crisp at common header sizes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Update the sticky header brand area to show the new logo next to the existing brand text with responsive alignment and no distortion.",
+      "acceptanceCriteria": [
+        "The header shows the new logo next to the brand text on desktop and mobile.",
+        "The logo maintains correct aspect ratio (no stretching), is not visibly cropped, and stays aligned with the text baseline/stack.",
+        "Header layout remains responsive: brand area does not overflow or cause the navigation/CTA layout to break at common breakpoints.",
+        "No other site interactions (scroll-to-section, menu toggle, Call Now, WhatsApp CTAs) regress."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/king-kingdom/HeaderNav.tsx",
+          "operation": "modify",
+          "description": "Import and render the static logo image from frontend/public/assets/generated/king-kingdom-logo-from-upload-1.dim_1024x1024.png inside the brand button alongside the existing text; apply responsive sizing (fixed square box), object-fit containment, and spacing so the logo is never stretched/cropped and the brand area stays aligned and non-overflowing across breakpoints."
+        }
+      ]
+    }
+  ]
+}

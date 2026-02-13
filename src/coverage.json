@@ -1,0 +1,46 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-13T17:35:48.502Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 1,
+    "items": [
+      {
+        "id": "REQ-17",
+        "summary": "Add the newly uploaded logo (download-1.webp) as a static image asset under frontend/public/assets/generated and create a crisp, centered, square logo file suitable for web use.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/public/assets/generated/king-kingdom-logo-from-upload-1.dim_1024x1024.png"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Update the sticky header brand area (frontend/src/components/king-kingdom/HeaderNav.tsx) to display the new logo image alongside the existing brand text (\"King Kingdom\" and \"Complete Construction Solutions\"), ensuring the logo is not stretched or cropped and remains well-aligned and responsive on small screens.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/king-kingdom/HeaderNav.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/king-kingdom/HeaderNav.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/king-kingdom/HeaderNav.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

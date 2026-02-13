@@ -1,2 +1,3 @@
-# king-kingdom
-Exported from Caffeine project: King Kingdom
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
