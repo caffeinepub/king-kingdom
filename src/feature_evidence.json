@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-sticky-header-brand-area-frontend-src-components-king-kingdom-headernav-tsx-to-display-the-new-logo-image-alongside-the-existing-brand-text-king-kingdom-and-complete-construction-solutions-ensuring-the-logo-is-not-stretched-or-cropped-and-remains-well-aligned-and-responsive-on-small-screens",
-      "featureTitle": "Update the sticky header brand area (frontend/src/components/king-kingdom/HeaderNav.tsx) to display the new logo image alongside the existing brand text (\"King Kingdom\" and \"Complete Construction Solutions\"), ensuring the logo is not stretched or cropped and remains well-aligned and responsive on small screens.",
+      "featureId": "feature-update-the-central-contact-configuration-to-support-and-expose-two-phone-numbers-91-7734920728-and-91-7297963005-including-correct-tel-links-so-ui-components-can-render-both-numbers-consistently",
+      "featureTitle": "Update the central contact configuration to support and expose two phone numbers: \"+91 7734920728\" and \"+91 7297963005\" (including correct `tel:` links), so UI components can render both numbers consistently.",
       "files": [
-        "frontend/src/components/king-kingdom/HeaderNav.tsx"
+        "frontend/src/config/contact.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,7 +15,46 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-18"
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-both-phone-numbers-as-clickable-tel-links-anywhere-the-homepage-currently-displays-a-single-phone-number-including-the-top-bar-footer-contact-area-and-the-contact-section-contact-info-block",
+      "featureTitle": "Render both phone numbers (as clickable `tel:` links) anywhere the homepage currently displays a single phone number, including the top bar, footer contact area, and the contact section contact-info block.",
+      "files": [
+        "frontend/src/components/king-kingdom/Footer.tsx",
+        "frontend/src/components/king-kingdom/TopBar.tsx",
+        "frontend/src/components/king-kingdom/contact/PhoneNumberLinks.tsx",
+        "frontend/src/components/king-kingdom/sections/ContactSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-all-call-to-action-elements-that-initiate-a-phone-call-e-g-call-now-buttons-links-continue-to-work-after-adding-the-second-phone-number-with-a-clear-deterministic-behavior-e-g-calling-the-primary-first-number-and-without-broken-links",
+      "featureTitle": "Ensure all call-to-action elements that initiate a phone call (e.g., \"Call Now\" buttons/links) continue to work after adding the second phone number, with a clear, deterministic behavior (e.g., calling the primary/first number) and without broken links.",
+      "files": [
+        "frontend/src/components/king-kingdom/sections/ContactSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
       ],
       "confidence": "high"
     }

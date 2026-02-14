@@ -1,55 +1,72 @@
 {
   "kind": "build_request",
-  "title": "Add the newly uploaded logo to the header branding",
+  "title": "Add two phone numbers across homepage contact sections",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-17",
-      "text": "Add the newly uploaded logo (download-1.webp) as a static image asset under frontend/public/assets/generated and create a crisp, centered, square logo file suitable for web use.",
+      "id": "REQ-1",
+      "text": "Update the central contact configuration to support and expose two phone numbers: \"+91 7734920728\" and \"+91 7297963005\" (including correct `tel:` links), so UI components can render both numbers consistently.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-4"
         ],
         "quotes": [
-          "Now add this logo"
+          "Add two no. +91 7734920728 / +91 7297963005"
         ]
       },
       "acceptanceCriteria": [
-        "A new logo image file exists under frontend/public/assets/generated.",
-        "The created logo is square, centered, and visually clean (no unintended padding/cropping), and renders crisply on mobile and desktop.",
-        "The app builds successfully after adding the new asset."
+        "`frontend/src/config/contact.ts` contains both phone numbers in a structured form usable by multiple components (e.g., a list/array plus any backward-compatible fields if needed).",
+        "The stored display strings match exactly: \"+91 7734920728\" and \"+91 7297963005\".",
+        "The stored `tel:` links correctly map to `tel:+917734920728` and `tel:+917297963005`."
       ]
     },
     {
-      "id": "REQ-18",
-      "text": "Update the sticky header brand area (frontend/src/components/king-kingdom/HeaderNav.tsx) to display the new logo image alongside the existing brand text (\"King Kingdom\" and \"Complete Construction Solutions\"), ensuring the logo is not stretched or cropped and remains well-aligned and responsive on small screens.",
+      "id": "REQ-2",
+      "text": "Render both phone numbers (as clickable `tel:` links) anywhere the homepage currently displays a single phone number, including the top bar, footer contact area, and the contact section contact-info block.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-4"
         ],
         "quotes": [
-          "Now add this logo"
+          "Add two no. +91 7734920728 / +91 7297963005"
         ]
       },
       "acceptanceCriteria": [
-        "The header shows the new logo next to the brand text on desktop and mobile.",
-        "The logo maintains correct aspect ratio (no stretching), is not visibly cropped, and stays aligned with the text baseline/stack.",
-        "Header layout remains responsive: brand area does not overflow or cause the navigation/CTA layout to break at common breakpoints.",
-        "No other site interactions (scroll-to-section, menu toggle, Call Now, WhatsApp CTAs) regress."
+        "Top bar shows both phone numbers and each is clickable to dial via `tel:`.",
+        "Footer contact area shows both phone numbers and each is clickable to dial via `tel:`.",
+        "Contact section contact-info block shows both phone numbers and each is clickable to dial via `tel:`.",
+        "No phone number currently shown on the homepage remains as a single-number-only rendering (unless it is intentionally WhatsApp-only)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Ensure all call-to-action elements that initiate a phone call (e.g., \"Call Now\" buttons/links) continue to work after adding the second phone number, with a clear, deterministic behavior (e.g., calling the primary/first number) and without broken links.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add two no. +91 7734920728 / +91 7297963005"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The \"Call Now\" button in the header navigation works and opens a `tel:` link for a valid phone number.",
+        "The \"Call Now\" button in the contact section works and opens a `tel:` link for a valid phone number.",
+        "No TypeScript errors are introduced by the contact config change (project builds successfully)."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui or any paths listed as immutable in SYSTEM_CONTEXT.",
-    "Store and reference logo images as static assets under frontend/public/assets/generated (do not route images through the backend).",
-    "Keep all user-facing text in English."
+    "Do not edit files under `frontend/src/components/ui` (compose existing UI components only).",
+    "Do not modify immutable hook files listed in SYSTEM_CONTEXT (e.g., `frontend/src/hooks/useInternetIdentity.ts(x)`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`)."
   ],
   "nonGoals": [
-    "Backend changes (Motoko) are out of scope.",
-    "Changing phone/WhatsApp URLs or contact form behavior is out of scope.",
-    "Redesigning other sections of the site beyond header logo placement is out of scope."
+    "Do not add or change backend/canister logic for this request.",
+    "Do not add third-party messaging integrations beyond existing WhatsApp linking.",
+    "Do not redesign the site layout beyond what is necessary to display the second phone number."
   ],
   "imageRequirements": {
     "required": [],

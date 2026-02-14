@@ -1,5 +1,6 @@
 import { Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { CONTACT_INFO } from '@/config/contact';
 
 interface CallNowButtonProps {
   variant?: 'primary' | 'outline';
@@ -13,7 +14,7 @@ export default function CallNowButton({ variant = 'outline', size = 'default', c
   
   return (
     <a
-      href="tel:+917734920728"
+      href={CONTACT_INFO.phone.tel}
       className={cn(baseClasses, sizeClasses, 'inline-flex items-center gap-2', className)}
     >
       <Phone className="w-4 h-4" />

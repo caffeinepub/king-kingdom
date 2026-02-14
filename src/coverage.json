@@ -1,33 +1,53 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-13T17:35:48.502Z",
+  "generatedAt": "2026-02-14T05:41:40.715Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 1,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
-        "id": "REQ-17",
-        "summary": "Add the newly uploaded logo (download-1.webp) as a static image asset under frontend/public/assets/generated and create a crisp, centered, square logo file suitable for web use.",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/public/assets/generated/king-kingdom-logo-from-upload-1.dim_1024x1024.png"
-        ],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-18",
-        "summary": "Update the sticky header brand area (frontend/src/components/king-kingdom/HeaderNav.tsx) to display the new logo image alongside the existing brand text (\"King Kingdom\" and \"Complete Construction Solutions\"), ensuring the logo is not stretched or cropped and remains well-aligned and responsive on small screens.",
+        "id": "REQ-1",
+        "summary": "Update the central contact configuration to support and expose two phone numbers: \"+91 7734920728\" and \"+91 7297963005\" (including correct `tel:` links), so UI components can render both numbers consistently.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/king-kingdom/HeaderNav.tsx"
+          "frontend/src/config/contact.ts"
         ],
         "matchedFiles": [
-          "frontend/src/components/king-kingdom/HeaderNav.tsx"
+          "frontend/src/config/contact.ts"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Render both phone numbers (as clickable `tel:` links) anywhere the homepage currently displays a single phone number, including the top bar, footer contact area, and the contact section contact-info block.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/king-kingdom/contact/PhoneNumberLinks.tsx",
+          "frontend/src/components/king-kingdom/TopBar.tsx",
+          "frontend/src/components/king-kingdom/Footer.tsx",
+          "frontend/src/components/king-kingdom/sections/ContactSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/king-kingdom/contact/PhoneNumberLinks.tsx",
+          "frontend/src/components/king-kingdom/TopBar.tsx",
+          "frontend/src/components/king-kingdom/Footer.tsx",
+          "frontend/src/components/king-kingdom/sections/ContactSection.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Ensure all call-to-action elements that initiate a phone call (e.g., \"Call Now\" buttons/links) continue to work after adding the second phone number, with a clear, deterministic behavior (e.g., calling the primary/first number) and without broken links.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/king-kingdom/cta/CallNowButton.tsx",
+          "frontend/src/components/king-kingdom/sections/ContactSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/king-kingdom/sections/ContactSection.tsx"
         ]
       }
     ]
@@ -37,7 +57,11 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/king-kingdom/HeaderNav.tsx",
+    "frontend/src/components/king-kingdom/Footer.tsx",
+    "frontend/src/components/king-kingdom/TopBar.tsx",
+    "frontend/src/components/king-kingdom/contact/PhoneNumberLinks.tsx",
+    "frontend/src/components/king-kingdom/sections/ContactSection.tsx",
+    "frontend/src/config/contact.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -1,9 +1,10 @@
 import { SiWhatsapp } from 'react-icons/si';
+import { CONTACT_INFO } from '@/config/contact';
 
 export default function FloatingWhatsAppButton() {
   return (
     <a
-      href="https://wa.me/917734920728"
+      href={CONTACT_INFO.whatsapp.url}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed right-5 bottom-5 z-40 bg-whatsapp hover:bg-whatsapp-dark text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 flex items-center gap-2 font-bold"

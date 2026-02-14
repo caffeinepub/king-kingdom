@@ -1,5 +1,6 @@
 import { SiWhatsapp } from 'react-icons/si';
 import { cn } from '@/lib/utils';
+import { CONTACT_INFO } from '@/config/contact';
 
 interface WhatsAppButtonProps {
   variant?: 'primary' | 'outline';
@@ -13,7 +14,7 @@ export default function WhatsAppButton({ variant = 'primary', size = 'default', 
   
   return (
     <a
-      href="https://wa.me/917734920728"
+      href={CONTACT_INFO.whatsapp.url}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(baseClasses, sizeClasses, 'inline-flex items-center gap-2', className)}

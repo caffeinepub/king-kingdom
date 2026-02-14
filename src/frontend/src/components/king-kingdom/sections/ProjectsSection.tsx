@@ -1,32 +1,32 @@
 export default function ProjectsSection() {
   const projects = [
     {
-      image: '/assets/generated/project-modern-house.dim_1200x800.jpg',
+      image: '/assets/generated/esko-project-1.dim_1200x800.jpg',
       title: 'Modern House Construction',
       location: 'Sujangarh, Rajasthan • Residential'
     },
     {
-      image: '/assets/generated/project-luxury-finishing.dim_1200x800.jpg',
+      image: '/assets/generated/esko-project-2.dim_1200x800.jpg',
       title: 'Luxury Home Finishing',
       location: 'Sujangarh, Rajasthan • Finishing'
     },
     {
-      image: '/assets/generated/project-office-renovation.dim_1200x800.jpg',
+      image: '/assets/generated/esko-project-3.dim_1200x800.jpg',
       title: 'Office & Shop Renovation',
       location: 'Rajasthan • Commercial'
     },
     {
-      image: '/assets/generated/project-ceiling-work.dim_1200x800.jpg',
+      image: '/assets/generated/esko-project-4.dim_1200x800.jpg',
       title: 'Interior & Ceiling Work',
       location: 'Residential • Interior'
     },
     {
-      image: '/assets/generated/project-tiles-flooring.dim_1200x800.jpg',
+      image: '/assets/generated/esko-project-5.dim_1200x800.jpg',
       title: 'Tiles & Flooring Project',
       location: 'Residential • Flooring'
     },
     {
-      image: '/assets/generated/project-commercial-building.dim_1200x800.jpg',
+      image: '/assets/generated/esko-project-6.dim_1200x800.jpg',
       title: 'Commercial Building Work',
       location: 'Rajasthan • Commercial'
     }

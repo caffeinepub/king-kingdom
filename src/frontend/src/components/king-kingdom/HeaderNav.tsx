@@ -34,7 +34,7 @@ export default function HeaderNav() {
           <button onClick={() => scrollToSection('home')} className="flex items-center gap-3 group shrink-0">
             <div className="w-10 h-10 flex-shrink-0">
               <img 
-                src="/assets/generated/king-kingdom-logo-from-upload-1.dim_1024x1024.png" 
+                src="/assets/generated/king-kingdom-logo.dim_256x256.png" 
                 alt="King Kingdom Logo" 
                 className="w-full h-full object-contain"
               />

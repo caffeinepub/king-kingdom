@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { buildWhatsAppUrl } from '@/lib/whatsapp';
+import { CONTACT_INFO } from '@/config/contact';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -50,35 +51,37 @@ Message: ${formData.message}`;
             <div className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-navy flex-shrink-0 mt-0.5" />
               <p className="text-sm text-muted-foreground">
-                Ricco Industrial Area, Sujangarh, Rajasthan - 331507
+                {CONTACT_INFO.address}
               </p>
             </div>
-            <div className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-navy flex-shrink-0" />
-              <a href="tel:+917734920728" className="text-sm font-semibold text-navy hover:underline">
-                +91 7734920728
-              </a>
-            </div>
+            {CONTACT_INFO.phones.map((phone) => (
+              <div key={phone.tel} className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-navy flex-shrink-0" />
+                <a href={phone.tel} className="text-sm font-semibold text-navy hover:underline">
+                  {phone.display}
+                </a>
+              </div>
+            ))}
             <div className="flex items-center gap-3">
               <SiWhatsapp className="w-5 h-5 text-navy flex-shrink-0" />
-              <a href="https://wa.me/917734920728" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-navy hover:underline">
-                +91 7734920728
+              <a href={CONTACT_INFO.whatsapp.url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-navy hover:underline">
+                {CONTACT_INFO.phones[1].display}
               </a>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-navy flex-shrink-0" />
-              <a href="mailto:kk5912618@gmail.com" className="text-sm font-semibold text-navy hover:underline">
-                kk5912618@gmail.com
+              <a href={`mailto:${CONTACT_INFO.email}`} className="text-sm font-semibold text-navy hover:underline">
+                {CONTACT_INFO.email}
               </a>
             </div>
           </div>
 
           <div className="flex flex-wrap gap-3 pt-4">
-            <a href="https://wa.me/917734920728" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
+            <a href={CONTACT_INFO.whatsapp.url} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
               <SiWhatsapp className="w-4 h-4" />
               WhatsApp Now
             </a>
-            <a href="tel:+917734920728" className="btn-outline inline-flex items-center gap-2">
+            <a href={CONTACT_INFO.phone.tel} className="btn-outline inline-flex items-center gap-2">
               <Phone className="w-4 h-4" />
               Call Now
             </a>

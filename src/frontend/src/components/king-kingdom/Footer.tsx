@@ -1,6 +1,7 @@
 import { Heart } from 'lucide-react';
 import { SiFacebook, SiInstagram, SiYoutube, SiLinkedin } from 'react-icons/si';
 import { getActiveSocialLinks } from '../../config/socialLinks';
+import { CONTACT_INFO } from '@/config/contact';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -101,24 +102,26 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-bold text-base mb-4">Contact</h4>
           <ul className="space-y-2">
+            {CONTACT_INFO.phones.map((phone) => (
+              <li key={phone.tel}>
+                <a href={phone.tel} className="text-sm text-navy-light/90 hover:text-white hover:underline transition-colors">
+                  {phone.display}
+                </a>
+              </li>
+            ))}
             <li>
-              <a href="tel:+917734920728" className="text-sm text-navy-light/90 hover:text-white hover:underline transition-colors">
-                +91 7734920728
+              <a href={`mailto:${CONTACT_INFO.email}`} className="text-sm text-navy-light/90 hover:text-white hover:underline transition-colors">
+                {CONTACT_INFO.email}
               </a>
             </li>
             <li>
-              <a href="mailto:kk5912618@gmail.com" className="text-sm text-navy-light/90 hover:text-white hover:underline transition-colors">
-                kk5912618@gmail.com
-              </a>
-            </li>
-            <li>
-              <a href="https://wa.me/917734920728" target="_blank" rel="noopener noreferrer" className="text-sm text-navy-light/90 hover:text-white hover:underline transition-colors">
+              <a href={CONTACT_INFO.whatsapp.url} target="_blank" rel="noopener noreferrer" className="text-sm text-navy-light/90 hover:text-white hover:underline transition-colors">
                 WhatsApp
               </a>
             </li>
           </ul>
           <p className="text-sm text-navy-light/90 leading-relaxed mt-4">
-            Ricco Industrial Area, Sujangarh, Rajasthan - 331507
+            {CONTACT_INFO.address}
           </p>
         </div>
       </div>

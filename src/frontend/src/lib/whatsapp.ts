@@ -1,8 +1,8 @@
-const WHATSAPP_NUMBER = '917734920728';
+import { CONTACT_INFO } from '@/config/contact';
 
 export function buildWhatsAppUrl(message: string): string {
   const encodedMessage = encodeURIComponent(message);
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+  return `${CONTACT_INFO.whatsapp.url}?text=${encodedMessage}`;
 }
 
 export function openWhatsApp(message: string): void {
