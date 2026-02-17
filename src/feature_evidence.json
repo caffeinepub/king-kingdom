@@ -2,9 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-ensure-the-site-uses-the-ccs-logo-consistently-in-all-primary-branding-locations-by-using-the-generated-ccs-logo-assets-in-the-header-navigation-brand-area-the-footer-brand-block-and-the-html-favicon",
-      "featureTitle": "Ensure the site uses the CCS logo consistently in all primary branding locations by using the generated CCS logo assets in the header navigation brand area, the footer brand block, and the HTML favicon.",
-      "files": [],
+      "featureId": "feature-remove-the-ccs-logo-image-from-the-header-brand-area-so-the-navigation-header-displays-brand-text-only-no-logo-image",
+      "featureTitle": "Remove the CCS logo image from the header brand area so the navigation header displays brand text only (no logo image).",
+      "files": [
+        "frontend/src/components/king-kingdom/HeaderNav.tsx"
+      ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
@@ -14,6 +16,42 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-the-ccs-logo-image-from-the-footer-brand-block-so-the-footer-displays-brand-text-only-no-logo-image",
+      "featureTitle": "Remove the CCS logo image from the footer brand block so the footer displays brand text only (no logo image).",
+      "files": [
+        "frontend/src/components/king-kingdom/Footer.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-the-ccs-favicon-reference-so-the-site-no-longer-uses-the-generated-ccs-logo-favicon",
+      "featureTitle": "Remove the CCS favicon reference so the site no longer uses the generated CCS logo favicon.",
+      "files": [
+        "frontend/index.html"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
       ],
       "confidence": "high"
     }

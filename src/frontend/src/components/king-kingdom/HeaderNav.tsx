@@ -31,13 +31,8 @@ export default function HeaderNav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
           {/* Brand */}
-          <button onClick={() => scrollToSection('home')} className="flex items-center gap-3 group shrink-0 min-w-[200px]">
-            <img 
-              src="/assets/generated/ccs-logo-icon.dim_256x256.png" 
-              alt="Complete Construction Solutions Logo" 
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain"
-            />
-            <div className="hidden sm:block">
+          <button onClick={() => scrollToSection('home')} className="flex items-center group shrink-0">
+            <div>
               <h1 className="text-[11px] sm:text-xs font-semibold text-muted-foreground leading-tight">Group of King Kingdom</h1>
               <p className="text-sm sm:text-base font-bold text-navy leading-tight">Complete Construction Solutions</p>
             </div>
