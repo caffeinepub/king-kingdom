@@ -8,10 +8,84 @@
 
 import { IDL } from '@icp-sdk/core/candid';
 
-export const idlService = IDL.Service({});
+export const LeadFormResponse = IDL.Record({
+  'city' : IDL.Text,
+  'fullName' : IDL.Text,
+  'requirement' : IDL.Text,
+  'message' : IDL.Opt(IDL.Text),
+  'phoneNumber' : IDL.Text,
+  'plotSize' : IDL.Opt(IDL.Text),
+});
+export const ContactDetails = IDL.Record({
+  'hours' : IDL.Text,
+  'whatsapp' : IDL.Text,
+  'email' : IDL.Text,
+  'address' : IDL.Text,
+  'phones' : IDL.Vec(IDL.Text),
+});
+
+export const idlService = IDL.Service({
+  'getAllLeads' : IDL.Func([], [IDL.Vec(LeadFormResponse)], ['query']),
+  'getContactDetails' : IDL.Func([], [ContactDetails], ['query']),
+  'getLeadByPhoneNumber' : IDL.Func(
+      [IDL.Text],
+      [IDL.Opt(LeadFormResponse)],
+      ['query'],
+    ),
+  'submitLeadForm' : IDL.Func(
+      [
+        IDL.Text,
+        IDL.Text,
+        IDL.Text,
+        IDL.Text,
+        IDL.Opt(IDL.Text),
+        IDL.Opt(IDL.Text),
+      ],
+      [IDL.Bool],
+      [],
+    ),
+});
 
 export const idlInitArgs = [];
 
-export const idlFactory = ({ IDL }) => { return IDL.Service({}); };
+export const idlFactory = ({ IDL }) => {
+  const LeadFormResponse = IDL.Record({
+    'city' : IDL.Text,
+    'fullName' : IDL.Text,
+    'requirement' : IDL.Text,
+    'message' : IDL.Opt(IDL.Text),
+    'phoneNumber' : IDL.Text,
+    'plotSize' : IDL.Opt(IDL.Text),
+  });
+  const ContactDetails = IDL.Record({
+    'hours' : IDL.Text,
+    'whatsapp' : IDL.Text,
+    'email' : IDL.Text,
+    'address' : IDL.Text,
+    'phones' : IDL.Vec(IDL.Text),
+  });
+  
+  return IDL.Service({
+    'getAllLeads' : IDL.Func([], [IDL.Vec(LeadFormResponse)], ['query']),
+    'getContactDetails' : IDL.Func([], [ContactDetails], ['query']),
+    'getLeadByPhoneNumber' : IDL.Func(
+        [IDL.Text],
+        [IDL.Opt(LeadFormResponse)],
+        ['query'],
+      ),
+    'submitLeadForm' : IDL.Func(
+        [
+          IDL.Text,
+          IDL.Text,
+          IDL.Text,
+          IDL.Text,
+          IDL.Opt(IDL.Text),
+          IDL.Opt(IDL.Text),
+        ],
+        [IDL.Bool],
+        [],
+      ),
+  });
+};
 
 export const init = ({ IDL }) => { return []; };

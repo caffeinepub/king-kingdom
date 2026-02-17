@@ -1,6 +1,4 @@
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import CallNowButton from '../cta/CallNowButton';
-import WhatsAppButton from '../cta/WhatsAppButton';
+import { CONTACT_INFO } from '@/config/contact';
 
 export default function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -14,39 +12,36 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="bg-gradient-to-br from-white via-navy-light/20 to-navy-light/30 py-16 md:py-20 px-[10%]">
-      <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 md:gap-12 items-center">
-        {/* Content */}
-        <div className="space-y-6">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05] tracking-tight">
-            Complete Construction Solutions Under One Roof
-          </h2>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            King Kingdom provides professional construction, renovation, interior finishing, and
-            material supply services with quality workmanship, trusted dealing, and on-time delivery.
-          </p>
-          <div className="flex flex-wrap gap-3 pt-2">
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              Get Free Quotation
-              <ArrowRight className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="btn-outline inline-flex items-center gap-2"
-            >
-              View Projects
-            </button>
+    <section id="home" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-[10%] bg-gradient-to-br from-white via-navy-light/20 to-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-7 items-center">
+          <div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-navy mb-4">
+              Complete Construction Solutions Under One Roof
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 max-w-xl">
+              King Kingdom provides professional construction, renovation, interior finishing, and
+              material supply services with quality workmanship, trusted dealing, and on-time delivery.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 mb-0">
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="bg-gradient-to-br from-navy to-navy-dark text-white px-6 py-3 rounded-xl font-bold hover:shadow-xl transition-all"
+              >
+                Get Free Quotation
+              </button>
+              <button
+                onClick={() => scrollToSection('portfolio')}
+                className="bg-white border border-border text-navy px-6 py-3 rounded-xl font-bold hover:bg-navy-light/30 transition-all"
+              >
+                View Projects
+              </button>
+            </div>
           </div>
-        </div>
 
-        {/* Hero Card */}
-        <div className="relative">
-          <div className="card-navy p-6 md:p-7 space-y-4">
-            <h3 className="text-xl font-bold text-white">What We Deliver</h3>
-            <ul className="space-y-3">
+          <div className="bg-gradient-to-br from-navy to-navy-dark text-white p-6 sm:p-7 rounded-2xl shadow-xl">
+            <h3 className="text-lg font-bold mb-3">What We Deliver</h3>
+            <ul className="space-y-0">
               {[
                 'House Construction & Renovation',
                 'Interior & Exterior Finishing',
@@ -54,20 +49,11 @@ export default function HeroSection() {
                 'Material Supply & Site Support',
                 'Professional Supervision & Quality'
               ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3 text-sm text-navy-light border-b border-white/10 pb-3 last:border-0 last:pb-0">
-                  <CheckCircle2 className="w-5 h-5 flex-shrink-0 text-white mt-0.5" />
-                  <span>{item}</span>
+                <li key={index} className="py-2.5 border-b border-white/10 last:border-b-0 text-sm text-white/90">
+                  ✔ {item}
                 </li>
               ))}
             </ul>
-          </div>
-          {/* Hero Image Background */}
-          <div className="absolute -z-10 -right-8 -bottom-8 w-64 h-64 opacity-10">
-            <img 
-              src="/assets/generated/king-kingdom-hero.dim_1600x900.jpg" 
-              alt="" 
-              className="w-full h-full object-cover rounded-3xl"
-            />
           </div>
         </div>
       </div>

@@ -1,75 +1,101 @@
 {
   "kind": "build_request",
-  "title": "Add two phone numbers across homepage contact sections",
+  "title": "Update site contact details, business hours, and social links",
+  "projectName": "King Kingdom",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the central contact configuration to support and expose two phone numbers: \"+91 7734920728\" and \"+91 7297963005\" (including correct `tel:` links), so UI components can render both numbers consistently.",
+      "text": "Update the centralized frontend contact configuration to match the provided business details: address \"Ricco Industrial Area Sujangarh Rajasthan:- 331507\", phone numbers \"+91 7734920728\" and \"+91 7297963005\", email \"ccsolutions0055@gmail.com\", WhatsApp number \"+91 7734920728\" (wa.me link should use 917734920728), and business hours \"Mon - Sat: 08:00 AM - 06:00 PM\".",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Add two no. +91 7734920728 / +91 7297963005"
+          "Ricco Industrial Area Sujangarh Rajasthan:- 331507\n📞\n+91 7734920728\n+91 7297963005\n✉️ \nccsolutions0055@gmail.com\nwhatsap number\n+91 7734920728\n...\nTime\nMon - Sat: 08:00 AM - 06:00 PM"
         ]
       },
       "acceptanceCriteria": [
-        "`frontend/src/config/contact.ts` contains both phone numbers in a structured form usable by multiple components (e.g., a list/array plus any backward-compatible fields if needed).",
-        "The stored display strings match exactly: \"+91 7734920728\" and \"+91 7297963005\".",
-        "The stored `tel:` links correctly map to `tel:+917734920728` and `tel:+917297963005`."
+        "`frontend/src/config/contact.ts` reflects the updated address, email, WhatsApp number/url, and includes both phone numbers (while still supporting a primary phone for single-phone CTAs).",
+        "All existing CTAs (HeaderNav, TopBar, FloatingWhatsAppButton, ContactSection, Footer) continue to render valid `tel:` and `https://wa.me/` links after the config update."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Render both phone numbers (as clickable `tel:` links) anywhere the homepage currently displays a single phone number, including the top bar, footer contact area, and the contact section contact-info block.",
+      "text": "Update the UI to display both phone numbers and the business hours in the contact-related areas (TopBar, Contact section, and Footer) using English labels and consistent formatting.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Add two no. +91 7734920728 / +91 7297963005"
+          "+91 7734920728\n+91 7297963005\nTime\nMon - Sat: 08:00 AM - 06:00 PM"
         ]
       },
       "acceptanceCriteria": [
-        "Top bar shows both phone numbers and each is clickable to dial via `tel:`.",
-        "Footer contact area shows both phone numbers and each is clickable to dial via `tel:`.",
-        "Contact section contact-info block shows both phone numbers and each is clickable to dial via `tel:`.",
-        "No phone number currently shown on the homepage remains as a single-number-only rendering (unless it is intentionally WhatsApp-only)."
+        "ContactSection shows both phone numbers as clickable phone links and shows business hours text (e.g., \"Mon - Sat: 08:00 AM - 06:00 PM\").",
+        "Footer contact area includes business hours and both phone numbers (each clickable).",
+        "TopBar continues to show at least the primary phone and WhatsApp; if space allows, it additionally exposes the second phone and/or hours without breaking mobile layout."
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Ensure all call-to-action elements that initiate a phone call (e.g., \"Call Now\" buttons/links) continue to work after adding the second phone number, with a clear, deterministic behavior (e.g., calling the primary/first number) and without broken links.",
+      "text": "Ensure the social media links are set to the provided Facebook/Instagram/YouTube URLs and are visible to users somewhere appropriate (e.g., Footer social icons/links) with accessible aria-labels.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Add two no. +91 7734920728 / +91 7297963005"
+          "https://www.facebook.com/profile.php?id=100034789162284\n\nhttps://www.instagram.com/king_kingdom0055?igsh=MXBtNXptM2d2M3NybQ==\n\nhttps://www.youtube.com/@kingkingdomsolutions"
         ]
       },
       "acceptanceCriteria": [
-        "The \"Call Now\" button in the header navigation works and opens a `tel:` link for a valid phone number.",
-        "The \"Call Now\" button in the contact section works and opens a `tel:` link for a valid phone number.",
-        "No TypeScript errors are introduced by the contact config change (project builds successfully)."
+        "The active social links include Facebook, Instagram, and YouTube with the exact provided URLs.",
+        "Users can click the social links from the UI (open in a new tab with `rel=\"noopener noreferrer\"`).",
+        "Each rendered social link has an appropriate accessible label (e.g., \"Visit our Facebook page\")."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Update the backend `getContactDetails()` data to match the provided business details for address, phone numbers, WhatsApp number, email, and business hours.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Ricco Industrial Area Sujangarh Rajasthan:- 331507\n+91 7734920728\n+91 7297963005\nccsolutions0055@gmail.com\nwhatsap number\n+91 7734920728\nMon - Sat: 08:00 AM - 06:00 PM"
+        ]
+      },
+      "acceptanceCriteria": [
+        "`backend/main.mo` contact details values (address, phones array, whatsapp, email, hours) match the provided details exactly in English punctuation/format.",
+        "`getContactDetails()` returns the updated values when called."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under `frontend/src/components/ui` (compose existing UI components only).",
-    "Do not modify immutable hook files listed in SYSTEM_CONTEXT (e.g., `frontend/src/hooks/useInternetIdentity.ts(x)`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`)."
+    "Do not edit files under `frontend/src/components/ui` or other paths listed in `frontend.immutablePaths`.",
+    "Keep all Motoko logic in the single actor `backend/main.mo`; only add `backend/migration.mo` if a stable-state upgrade is required."
   ],
   "nonGoals": [
-    "Do not add or change backend/canister logic for this request.",
-    "Do not add third-party messaging integrations beyond existing WhatsApp linking.",
-    "Do not redesign the site layout beyond what is necessary to display the second phone number."
+    "Adding new pages, services, or marketing copy beyond updating contact details, hours, and social links.",
+    "Implementing third-party authentication or integrations beyond the existing Internet Identity setup.",
+    "Adding real-time messaging/chat or storing contact details in an external database."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

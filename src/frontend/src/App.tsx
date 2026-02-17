@@ -4,8 +4,7 @@ import HeroSection from './components/king-kingdom/sections/HeroSection';
 import HighlightsSection from './components/king-kingdom/sections/HighlightsSection';
 import AboutSection from './components/king-kingdom/sections/AboutSection';
 import ServicesSection from './components/king-kingdom/sections/ServicesSection';
-import ConstructionPhotosSection from './components/king-kingdom/sections/ConstructionPhotosSection';
-import ProjectsSection from './components/king-kingdom/sections/ProjectsSection';
+import PortfolioSection from './components/king-kingdom/sections/PortfolioSection';
 import WhyChooseSection from './components/king-kingdom/sections/WhyChooseSection';
 import ProcessSection from './components/king-kingdom/sections/ProcessSection';
 import ContactSection from './components/king-kingdom/sections/ContactSection';
@@ -22,8 +21,7 @@ function App() {
         <HighlightsSection />
         <AboutSection />
         <ServicesSection />
-        <ConstructionPhotosSection />
-        <ProjectsSection />
+        <PortfolioSection />
         <WhyChooseSection />
         <ProcessSection />
         <ContactSection />

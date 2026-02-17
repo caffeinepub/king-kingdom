@@ -10,7 +10,30 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
-export interface _SERVICE {}
+export interface ContactDetails {
+  'hours' : string,
+  'whatsapp' : string,
+  'email' : string,
+  'address' : string,
+  'phones' : Array<string>,
+}
+export interface LeadFormResponse {
+  'city' : string,
+  'fullName' : string,
+  'requirement' : string,
+  'message' : [] | [string],
+  'phoneNumber' : string,
+  'plotSize' : [] | [string],
+}
+export interface _SERVICE {
+  'getAllLeads' : ActorMethod<[], Array<LeadFormResponse>>,
+  'getContactDetails' : ActorMethod<[], ContactDetails>,
+  'getLeadByPhoneNumber' : ActorMethod<[string], [] | [LeadFormResponse]>,
+  'submitLeadForm' : ActorMethod<
+    [string, string, string, string, [] | [string], [] | [string]],
+    boolean
+  >,
+}
 export declare const idlService: IDL.ServiceClass;
 export declare const idlInitArgs: IDL.Type[];
 export declare const idlFactory: IDL.InterfaceFactory;

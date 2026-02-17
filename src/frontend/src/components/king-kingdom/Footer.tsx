@@ -1,12 +1,9 @@
 import { Heart } from 'lucide-react';
-import { SiFacebook, SiInstagram, SiYoutube, SiLinkedin } from 'react-icons/si';
-import { getActiveSocialLinks } from '../../config/socialLinks';
+import { SiFacebook, SiInstagram, SiYoutube } from 'react-icons/si';
 import { CONTACT_INFO } from '@/config/contact';
+import { getActiveSocialLinks } from '@/config/socialLinks';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-  const activeSocialLinks = getActiveSocialLinks();
-  
   const getAppIdentifier = () => {
     try {
       return encodeURIComponent(window.location.hostname || 'king-kingdom');
@@ -25,39 +22,34 @@ export default function Footer() {
     }
   };
 
+  const activeSocialLinks = getActiveSocialLinks();
+
   const getSocialIcon = (name: string) => {
-    const iconClass = "w-5 h-5";
     switch (name.toLowerCase()) {
       case 'facebook':
-        return <SiFacebook className={iconClass} />;
+        return <SiFacebook className="w-5 h-5" />;
       case 'instagram':
-        return <SiInstagram className={iconClass} />;
+        return <SiInstagram className="w-5 h-5" />;
       case 'youtube':
-        return <SiYoutube className={iconClass} />;
-      case 'linkedin':
-        return <SiLinkedin className={iconClass} />;
+        return <SiYoutube className="w-5 h-5" />;
       default:
         return null;
     }
   };
 
   return (
-    <footer className="bg-navy-dark text-navy-light py-12 px-[10%] mt-16">
-      <div className="grid md:grid-cols-[2fr_1fr_1fr] gap-8 mb-8">
-        {/* About */}
-        <div>
-          <h4 className="text-white font-bold text-lg mb-4">King Kingdom</h4>
-          <p className="text-sm leading-relaxed text-navy-light/90">
-            King Kingdom is a professional construction company in Sujangarh, Rajasthan providing
-            complete construction solutions including renovation, finishing, interior work, and
-            construction material supply.
-          </p>
-          
-          {/* Social Media Links */}
-          {activeSocialLinks.length > 0 && (
-            <div className="mt-6">
-              <h5 className="text-white font-semibold text-sm mb-3">Follow Us</h5>
-              <div className="flex items-center gap-3">
+    <footer className="bg-[#07142e] text-white/80 pt-8 pb-6 mt-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          <div>
+            <h4 className="text-white font-bold mb-2.5">King Kingdom</h4>
+            <p className="text-sm leading-relaxed">
+              King Kingdom is a professional construction company in Sujangarh, Rajasthan providing
+              complete construction solutions including renovation, finishing, interior work, and
+              construction material supply.
+            </p>
+            {activeSocialLinks.length > 0 && (
+              <div className="flex items-center gap-3 mt-4">
                 {activeSocialLinks.map((link) => (
                   <a
                     key={link.name}
@@ -65,83 +57,85 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={link.ariaLabel}
-                    className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-navy-light hover:text-white transition-all duration-200 hover:scale-110"
+                    className="text-white/70 hover:text-white transition-colors"
                   >
                     {getSocialIcon(link.name)}
                   </a>
                 ))}
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
 
-        {/* Quick Links */}
-        <div>
-          <h4 className="text-white font-bold text-base mb-4">Quick Links</h4>
-          <ul className="space-y-2">
-            {[
-              { label: 'Home', id: 'home' },
-              { label: 'About', id: 'about' },
-              { label: 'Services', id: 'services' },
-              { label: 'Projects', id: 'projects' },
-              { label: 'Contact', id: 'contact' }
-            ].map((item) => (
-              <li key={item.id}>
+          <div>
+            <h4 className="text-white font-bold mb-2.5">Quick Links</h4>
+            <div className="space-y-1.5">
+              {[
+                { label: 'Home', id: 'home' },
+                { label: 'About', id: 'about' },
+                { label: 'Services', id: 'services' },
+                { label: 'Projects', id: 'portfolio' },
+                { label: 'Contact', id: 'contact' }
+              ].map((item) => (
                 <button
+                  key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-sm text-navy-light/90 hover:text-white hover:underline transition-colors"
+                  className="block text-sm hover:text-white transition-colors"
                 >
                   {item.label}
                 </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+              ))}
+            </div>
+          </div>
 
-        {/* Contact */}
-        <div>
-          <h4 className="text-white font-bold text-base mb-4">Contact</h4>
-          <ul className="space-y-2">
-            {CONTACT_INFO.phones.map((phone) => (
-              <li key={phone.tel}>
-                <a href={phone.tel} className="text-sm text-navy-light/90 hover:text-white hover:underline transition-colors">
+          <div>
+            <h4 className="text-white font-bold mb-2.5">Contact</h4>
+            <div className="space-y-1.5 text-sm">
+              {CONTACT_INFO.phones.map((phone) => (
+                <a 
+                  key={phone.tel}
+                  href={phone.tel} 
+                  className="block hover:text-white transition-colors"
+                >
                   {phone.display}
                 </a>
-              </li>
-            ))}
-            <li>
-              <a href={`mailto:${CONTACT_INFO.email}`} className="text-sm text-navy-light/90 hover:text-white hover:underline transition-colors">
+              ))}
+              <a href={`mailto:${CONTACT_INFO.email}`} className="block hover:text-white transition-colors">
                 {CONTACT_INFO.email}
               </a>
-            </li>
-            <li>
-              <a href={CONTACT_INFO.whatsapp.url} target="_blank" rel="noopener noreferrer" className="text-sm text-navy-light/90 hover:text-white hover:underline transition-colors">
-                WhatsApp
+              <a 
+                href={CONTACT_INFO.whatsapp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:text-white transition-colors"
+              >
+                WhatsApp: {CONTACT_INFO.whatsapp.display}
               </a>
-            </li>
-          </ul>
-          <p className="text-sm text-navy-light/90 leading-relaxed mt-4">
-            {CONTACT_INFO.address}
+              <p className="leading-relaxed pt-2">
+                {CONTACT_INFO.address}
+              </p>
+              <p className="pt-2">
+                {CONTACT_INFO.hours}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 pt-4 space-y-2">
+          <p className="text-xs text-center text-white/60">
+            © {new Date().getFullYear()} King Kingdom | Complete Construction Solutions. All Rights Reserved.
+          </p>
+          <p className="text-xs text-center text-white/50 flex items-center justify-center gap-1.5">
+            Built with <Heart className="w-3 h-3 text-red-400 fill-red-400" /> using{' '}
+            <a
+              href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${getAppIdentifier()}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors underline"
+            >
+              caffeine.ai
+            </a>
           </p>
         </div>
-      </div>
-
-      {/* Copyright */}
-      <div className="border-t border-white/10 pt-6 text-center space-y-2">
-        <p className="text-sm text-navy-light/70">
-          © {currentYear} King Kingdom | Complete Construction Solutions. All Rights Reserved.
-        </p>
-        <p className="text-xs text-navy-light/60 flex items-center justify-center gap-1.5">
-          Built with <Heart className="w-3 h-3 text-red-400 fill-red-400" /> using{' '}
-          <a
-            href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${getAppIdentifier()}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition-colors underline"
-          >
-            caffeine.ai
-          </a>
-        </p>
       </div>
     </footer>
   );

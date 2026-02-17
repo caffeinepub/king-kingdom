@@ -33,24 +33,26 @@ export default function ProcessSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 px-[10%] bg-accent/20">
-      <div className="text-center mb-12">
-        <h2 className="section-title">How We Work</h2>
-        <p className="section-subtitle">
-          Simple and transparent process for every construction project.
-        </p>
-      </div>
+    <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-[10%]">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-9">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-2.5">How We Work</h2>
+          <p className="text-base text-muted-foreground">
+            Simple and transparent process for every construction project.
+          </p>
+        </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {steps.map((step, index) => (
-          <div key={index} className="card-white p-6">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-navy to-navy-dark text-white font-bold text-lg mb-4 shadow-lg">
-              {step.number}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          {steps.map((step, index) => (
+            <div key={index} className="bg-white border border-border rounded-2xl p-5 shadow-sm">
+              <div className="inline-flex items-center justify-center w-9.5 h-9.5 rounded-xl bg-gradient-to-br from-navy to-navy-dark text-white font-extrabold text-base mb-3 shadow-lg">
+                {step.number}
+              </div>
+              <h4 className="text-navy font-bold mb-2">{step.title}</h4>
+              <p className="text-muted-foreground text-xs leading-relaxed">{step.description}</p>
             </div>
-            <h4 className="text-base font-bold text-navy mb-3">{step.title}</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,36 +1,20 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T05:41:40.713Z",
-  "summary": "REQ-1 appears implemented via an updated central contact config exposing both phone numbers with correct display strings and tel: links, plus a backward-compatible primary phone field. REQ-2 appears implemented for TopBar, Footer contact area, and ContactSection contact-info via mapping over CONTACT_INFO.phones. REQ-3 is only partially evidenced: the ContactSection \"Call Now\" uses CONTACT_INFO.phone.tel, but there is no diff evidence that the header navigation \"Call Now\" CTA was updated/verified to use the primary phone after the config change.",
+  "generatedAt": "2026-02-17T09:00:57.940Z",
+  "summary": "Frontend contact config was updated with the new address, email, WhatsApp wa.me number/url, business hours, and two phone numbers, and UI components (TopBar, ContactSection, Footer) were adjusted to render multiple phones/hours and social icons with aria-labels. However, the backend contact details update (REQ-4) is not evidenced in the diff summary.",
   "missing_requirements": [
     {
-      "id": "REQ-3",
-      "requirement": "The \"Call Now\" button in the header navigation works and opens a tel: link for a valid phone number (deterministically the primary/first number) after adding the second phone number.",
-      "reason": "The diff summary shows ContactSection's \"Call Now\" uses CONTACT_INFO.phone.tel, but there is no change or snippet for the header navigation component to confirm it still points to a valid tel: link after the contact config was refactored.",
+      "id": "REQ-4",
+      "requirement": "Update the backend `getContactDetails()` data to match the provided business details for address, phone numbers, WhatsApp number, email, and business hours.",
+      "reason": "No backend files (e.g., `backend/main.mo`) appear as modified in the diff summary, so there is no evidence that `getContactDetails()` was updated.",
       "evidence": [
-        "frontend/src/components/king-kingdom/sections/ContactSection.tsx",
-        "frontend-file-summaries.txt (mentions HeaderNav and CallNowButton but provides no code diff evidence)"
+        "<file-diff>: Modified files list contains only frontend files plus project_state.json; no backend/* files are listed."
       ]
     }
   ],
-  "hallucinated_features": [
-    {
-      "description": "Project tracking/state metadata changes (project_state.json) unrelated to the requested UI/config updates.",
-      "reason": "BuildRequest did not request adding/updating project state tracking files; it only requested contact config and homepage rendering changes.",
-      "evidence": [
-        "project_state.json"
-      ]
-    },
-    {
-      "description": "Generated/updated repository summary file (frontend-file-summaries.txt).",
-      "reason": "BuildRequest did not request adding/updating documentation/summary artifacts; it only requested functional changes to contact configuration and homepage sections.",
-      "evidence": [
-        "frontend-file-summaries.txt"
-      ]
-    }
-  ],
-  "confidence": 0.62,
+  "hallucinated_features": [],
+  "confidence": 0.74,
   "changed_files": [
     "frontend-file-summaries.txt",
     "frontend/src/components/king-kingdom/Footer.tsx",

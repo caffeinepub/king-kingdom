@@ -89,10 +89,125 @@ export class ExternalBlob {
         return this;
     }
 }
-export interface backendInterface {
+export interface LeadFormResponse {
+    city: string;
+    fullName: string;
+    requirement: string;
+    message?: string;
+    phoneNumber: string;
+    plotSize?: string;
 }
+export interface ContactDetails {
+    hours: string;
+    whatsapp: string;
+    email: string;
+    address: string;
+    phones: Array<string>;
+}
+export interface backendInterface {
+    getAllLeads(): Promise<Array<LeadFormResponse>>;
+    getContactDetails(): Promise<ContactDetails>;
+    getLeadByPhoneNumber(phoneNumber: string): Promise<LeadFormResponse | null>;
+    submitLeadForm(fullName: string, phoneNumber: string, city: string, requirement: string, plotSize: string | null, message: string | null): Promise<boolean>;
+}
+import type { LeadFormResponse as _LeadFormResponse } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
+    async getAllLeads(): Promise<Array<LeadFormResponse>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllLeads();
+                return from_candid_vec_n1(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllLeads();
+            return from_candid_vec_n1(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getContactDetails(): Promise<ContactDetails> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getContactDetails();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getContactDetails();
+            return result;
+        }
+    }
+    async getLeadByPhoneNumber(arg0: string): Promise<LeadFormResponse | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getLeadByPhoneNumber(arg0);
+                return from_candid_opt_n5(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getLeadByPhoneNumber(arg0);
+            return from_candid_opt_n5(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async submitLeadForm(arg0: string, arg1: string, arg2: string, arg3: string, arg4: string | null, arg5: string | null): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.submitLeadForm(arg0, arg1, arg2, arg3, to_candid_opt_n6(this._uploadFile, this._downloadFile, arg4), to_candid_opt_n6(this._uploadFile, this._downloadFile, arg5));
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.submitLeadForm(arg0, arg1, arg2, arg3, to_candid_opt_n6(this._uploadFile, this._downloadFile, arg4), to_candid_opt_n6(this._uploadFile, this._downloadFile, arg5));
+            return result;
+        }
+    }
+}
+function from_candid_LeadFormResponse_n2(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _LeadFormResponse): LeadFormResponse {
+    return from_candid_record_n3(_uploadFile, _downloadFile, value);
+}
+function from_candid_opt_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [string]): string | null {
+    return value.length === 0 ? null : value[0];
+}
+function from_candid_opt_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_LeadFormResponse]): LeadFormResponse | null {
+    return value.length === 0 ? null : from_candid_LeadFormResponse_n2(_uploadFile, _downloadFile, value[0]);
+}
+function from_candid_record_n3(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    city: string;
+    fullName: string;
+    requirement: string;
+    message: [] | [string];
+    phoneNumber: string;
+    plotSize: [] | [string];
+}): {
+    city: string;
+    fullName: string;
+    requirement: string;
+    message?: string;
+    phoneNumber: string;
+    plotSize?: string;
+} {
+    return {
+        city: value.city,
+        fullName: value.fullName,
+        requirement: value.requirement,
+        message: record_opt_to_undefined(from_candid_opt_n4(_uploadFile, _downloadFile, value.message)),
+        phoneNumber: value.phoneNumber,
+        plotSize: record_opt_to_undefined(from_candid_opt_n4(_uploadFile, _downloadFile, value.plotSize))
+    };
+}
+function from_candid_vec_n1(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_LeadFormResponse>): Array<LeadFormResponse> {
+    return value.map((x)=>from_candid_LeadFormResponse_n2(_uploadFile, _downloadFile, x));
+}
+function to_candid_opt_n6(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: string | null): [] | [string] {
+    return value === null ? candid_none() : candid_some(value);
 }
 export interface CreateActorOptions {
     agent?: Agent;

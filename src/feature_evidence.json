@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-central-contact-configuration-to-support-and-expose-two-phone-numbers-91-7734920728-and-91-7297963005-including-correct-tel-links-so-ui-components-can-render-both-numbers-consistently",
-      "featureTitle": "Update the central contact configuration to support and expose two phone numbers: \"+91 7734920728\" and \"+91 7297963005\" (including correct `tel:` links), so UI components can render both numbers consistently.",
+      "featureId": "feature-update-the-centralized-frontend-contact-configuration-to-match-the-provided-business-details-address-ricco-industrial-area-sujangarh-rajasthan-331507-phone-numbers-91-7734920728-and-91-7297963005-email-ccsolutions0055-gmail-com-whatsapp-number-91-7734920728-wa-me-link-should-use-917734920728-and-business-hours-mon-sat-08-00-am-06-00-pm",
+      "featureTitle": "Update the centralized frontend contact configuration to match the provided business details: address \"Ricco Industrial Area Sujangarh Rajasthan:- 331507\", phone numbers \"+91 7734920728\" and \"+91 7297963005\", email \"ccsolutions0055@gmail.com\", WhatsApp number \"+91 7734920728\" (wa.me link should use 917734920728), and business hours \"Mon - Sat: 08:00 AM - 06:00 PM\".",
       "files": [
         "frontend/src/config/contact.ts"
       ],
@@ -20,8 +20,8 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-render-both-phone-numbers-as-clickable-tel-links-anywhere-the-homepage-currently-displays-a-single-phone-number-including-the-top-bar-footer-contact-area-and-the-contact-section-contact-info-block",
-      "featureTitle": "Render both phone numbers (as clickable `tel:` links) anywhere the homepage currently displays a single phone number, including the top bar, footer contact area, and the contact section contact-info block.",
+      "featureId": "feature-update-the-ui-to-display-both-phone-numbers-and-the-business-hours-in-the-contact-related-areas-topbar-contact-section-and-footer-using-english-labels-and-consistent-formatting",
+      "featureTitle": "Update the UI to display both phone numbers and the business hours in the contact-related areas (TopBar, Contact section, and Footer) using English labels and consistent formatting.",
       "files": [
         "frontend/src/components/king-kingdom/Footer.tsx",
         "frontend/src/components/king-kingdom/TopBar.tsx",
@@ -41,10 +41,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-ensure-all-call-to-action-elements-that-initiate-a-phone-call-e-g-call-now-buttons-links-continue-to-work-after-adding-the-second-phone-number-with-a-clear-deterministic-behavior-e-g-calling-the-primary-first-number-and-without-broken-links",
-      "featureTitle": "Ensure all call-to-action elements that initiate a phone call (e.g., \"Call Now\" buttons/links) continue to work after adding the second phone number, with a clear, deterministic behavior (e.g., calling the primary/first number) and without broken links.",
+      "featureId": "feature-ensure-the-social-media-links-are-set-to-the-provided-facebook-instagram-youtube-urls-and-are-visible-to-users-somewhere-appropriate-e-g-footer-social-icons-links-with-accessible-aria-labels",
+      "featureTitle": "Ensure the social media links are set to the provided Facebook/Instagram/YouTube URLs and are visible to users somewhere appropriate (e.g., Footer social icons/links) with accessible aria-labels.",
       "files": [
-        "frontend/src/components/king-kingdom/sections/ContactSection.tsx"
+        "frontend/src/components/king-kingdom/Footer.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",

@@ -1,11 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Show two phone numbers consistently across all homepage contact areas and keep call-to-action phone links working.
+**Goal:** Update site-wide contact details, business hours, and social links to match the provided King Kingdom business information.
 
 **Planned changes:**
-- Update the central contact configuration (`frontend/src/config/contact.ts`) to store both phone numbers in a structured form, including exact display strings and correct `tel:` links (`tel:+917734920728`, `tel:+917297963005`).
-- Update homepage sections that currently render a single phone number (top bar, footer contact area, contact section contact-info block) to render both numbers as clickable `tel:` links.
-- Ensure existing call-to-action elements that trigger a phone call (e.g., “Call Now” in header/navigation and contact section) still work deterministically by linking to the primary/first number.
+- Update the centralized frontend contact configuration (`frontend/src/config/contact.ts`) with the new address, email, WhatsApp number/link (wa.me using `917734920728`), business hours, and both phone numbers while keeping a primary phone for single-phone CTAs.
+- Adjust contact-related UI areas (TopBar, Contact section, Footer) to display both phone numbers as clickable `tel:` links and show business hours with consistent English formatting, without breaking mobile layout.
+- Set Facebook, Instagram, and YouTube links to the provided URLs, render them in an appropriate UI location (e.g., Footer), open in a new tab with `rel="noopener noreferrer"`, and include accessible aria-labels.
+- Update backend contact details returned by `getContactDetails()` in `backend/main.mo` to match the new address, phones array, WhatsApp, email, and business hours.
 
-**User-visible outcome:** Visitors see two clickable phone numbers across the homepage contact sections, and “Call Now” actions continue to place a call successfully (using the primary number).
+**User-visible outcome:** Visitors see the correct address, email, WhatsApp link, business hours, and both phone numbers across the site and can click updated social links (Facebook/Instagram/YouTube) from the UI.

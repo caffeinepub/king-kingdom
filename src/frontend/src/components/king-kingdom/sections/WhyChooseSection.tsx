@@ -35,25 +35,27 @@ export default function WhyChooseSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 px-[10%] bg-gradient-to-br from-navy via-navy to-navy-dark text-white">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose King Kingdom</h2>
-        <p className="text-navy-light text-base md:text-lg max-w-2xl mx-auto">
-          Trusted construction solutions with quality, professionalism, and transparent dealing.
-        </p>
-      </div>
+    <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-[10%] bg-gradient-to-br from-navy via-navy to-navy-dark text-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-9">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2.5">Why Choose King Kingdom</h2>
+          <p className="text-base text-white/80 max-w-2xl mx-auto">
+            Trusted construction solutions with quality, professionalism, and transparent dealing.
+          </p>
+        </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {reasons.map((reason, index) => {
-          const Icon = reason.icon;
-          return (
-            <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all">
-              <Icon className="w-8 h-8 text-white mb-4" />
-              <h4 className="text-lg font-bold mb-3">{reason.title}</h4>
-              <p className="text-sm text-navy-light leading-relaxed">{reason.description}</p>
-            </div>
-          );
-        })}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          {reasons.map((reason, index) => {
+            const Icon = reason.icon;
+            return (
+              <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5">
+                <Icon className="w-8 h-8 text-white mb-3" />
+                <h4 className="text-base font-bold mb-2">{reason.title}</h4>
+                <p className="text-sm text-white/80 leading-relaxed">{reason.description}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

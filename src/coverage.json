@@ -1,21 +1,22 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T05:41:40.715Z",
+  "generatedAt": "2026-02-17T09:00:57.943Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
+    "total": 4,
     "implemented": 3,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the central contact configuration to support and expose two phone numbers: \"+91 7734920728\" and \"+91 7297963005\" (including correct `tel:` links), so UI components can render both numbers consistently.",
+        "summary": "Update the centralized frontend contact configuration to match the provided business details: address \"Ricco Industrial Area Sujangarh Rajasthan:- 331507\", phone numbers \"+91 7734920728\" and \"+91 7297963005\", email \"ccsolutions0055@gmail.com\", WhatsApp number \"+91 7734920728\" (wa.me link should use 917734920728), and business hours \"Mon - Sat: 08:00 AM - 06:00 PM\".",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/config/contact.ts"
+          "frontend/src/config/contact.ts",
+          "frontend/src/lib/whatsapp.ts"
         ],
         "matchedFiles": [
           "frontend/src/config/contact.ts"
@@ -23,32 +24,39 @@
       },
       {
         "id": "REQ-2",
-        "summary": "Render both phone numbers (as clickable `tel:` links) anywhere the homepage currently displays a single phone number, including the top bar, footer contact area, and the contact section contact-info block.",
+        "summary": "Update the UI to display both phone numbers and the business hours in the contact-related areas (TopBar, Contact section, and Footer) using English labels and consistent formatting.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/king-kingdom/contact/PhoneNumberLinks.tsx",
           "frontend/src/components/king-kingdom/TopBar.tsx",
-          "frontend/src/components/king-kingdom/Footer.tsx",
-          "frontend/src/components/king-kingdom/sections/ContactSection.tsx"
+          "frontend/src/components/king-kingdom/sections/ContactSection.tsx",
+          "frontend/src/components/king-kingdom/Footer.tsx"
         ],
         "matchedFiles": [
           "frontend/src/components/king-kingdom/contact/PhoneNumberLinks.tsx",
           "frontend/src/components/king-kingdom/TopBar.tsx",
-          "frontend/src/components/king-kingdom/Footer.tsx",
-          "frontend/src/components/king-kingdom/sections/ContactSection.tsx"
+          "frontend/src/components/king-kingdom/sections/ContactSection.tsx",
+          "frontend/src/components/king-kingdom/Footer.tsx"
         ]
       },
       {
         "id": "REQ-3",
-        "summary": "Ensure all call-to-action elements that initiate a phone call (e.g., \"Call Now\" buttons/links) continue to work after adding the second phone number, with a clear, deterministic behavior (e.g., calling the primary/first number) and without broken links.",
+        "summary": "Ensure the social media links are set to the provided Facebook/Instagram/YouTube URLs and are visible to users somewhere appropriate (e.g., Footer social icons/links) with accessible aria-labels.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/king-kingdom/cta/CallNowButton.tsx",
-          "frontend/src/components/king-kingdom/sections/ContactSection.tsx"
+          "frontend/src/config/socialLinks.ts",
+          "frontend/src/components/king-kingdom/Footer.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/king-kingdom/sections/ContactSection.tsx"
+          "frontend/src/components/king-kingdom/Footer.tsx"
         ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Update the backend `getContactDetails()` data to match the provided business details for address, phone numbers, WhatsApp number, email, and business hours.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
       }
     ]
   },

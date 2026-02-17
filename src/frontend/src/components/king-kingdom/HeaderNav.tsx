@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import CallNowButton from './cta/CallNowButton';
-import WhatsAppButton from './cta/WhatsAppButton';
+import { Menu, X, Phone } from 'lucide-react';
+import { SiWhatsapp } from 'react-icons/si';
+import { CONTACT_INFO } from '@/config/contact';
 
 export default function HeaderNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,56 +27,63 @@ export default function HeaderNav() {
   };
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white/90 backdrop-blur-sm'} border-b border-border`}>
-      <div className="px-[10%] py-3.5">
-        <div className="flex items-center justify-between gap-4">
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-white/90 backdrop-blur-sm'} border-b border-border`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
           {/* Brand */}
-          <button onClick={() => scrollToSection('home')} className="flex items-center gap-3 group shrink-0">
-            <div className="w-10 h-10 flex-shrink-0">
-              <img 
-                src="/assets/generated/king-kingdom-logo.dim_256x256.png" 
-                alt="King Kingdom Logo" 
-                className="w-full h-full object-contain"
-              />
+          <button onClick={() => scrollToSection('home')} className="flex items-center gap-3 group shrink-0 min-w-[200px]">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-navy to-navy-dark flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-lg">
+              KK
             </div>
-            <div className="text-left">
-              <h1 className="text-lg font-bold text-navy leading-tight whitespace-nowrap">King Kingdom</h1>
-              <p className="text-xs text-muted-foreground whitespace-nowrap">Complete Construction Solutions</p>
+            <div className="hidden sm:block">
+              <h1 className="text-base sm:text-lg font-bold text-navy leading-tight">King Kingdom</h1>
+              <p className="text-[10px] sm:text-xs text-muted-foreground">Complete Construction Solutions</p>
             </div>
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:block flex-1">
-            <ul className="flex items-center justify-center gap-1">
-              {[
-                { label: 'Home', id: 'home' },
-                { label: 'About', id: 'about' },
-                { label: 'Services', id: 'services' },
-                { label: 'Projects', id: 'projects' },
-                { label: 'Contact', id: 'contact' }
-              ].map((item) => (
-                <li key={item.id}>
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className="px-4 py-2 text-sm font-semibold text-foreground rounded-lg hover:bg-navy-hover transition-colors"
-                  >
-                    {item.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
+            {[
+              { label: 'Home', id: 'home' },
+              { label: 'About', id: 'about' },
+              { label: 'Services', id: 'services' },
+              { label: 'Projects', id: 'portfolio' },
+              { label: 'Contact', id: 'contact' }
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-navy hover:bg-navy-light/50 text-sm font-semibold transition-all px-2.5 py-2 rounded-xl"
+              >
+                {item.label}
+              </button>
+            ))}
           </nav>
 
           {/* Desktop CTAs */}
-          <div className="hidden lg:flex items-center gap-2.5 shrink-0">
-            <CallNowButton variant="outline" size="sm" />
-            <WhatsAppButton variant="primary" size="sm" />
+          <div className="hidden lg:flex items-center gap-2.5 min-w-[200px] justify-end">
+            <a
+              href={CONTACT_INFO.phone.tel}
+              className="bg-white border border-border text-navy px-3.5 py-2.5 rounded-xl font-bold text-sm hover:bg-navy-light/30 transition-all inline-flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4" />
+              Call Now
+            </a>
+            <a
+              href={CONTACT_INFO.whatsapp.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-br from-navy to-navy-dark text-white px-3.5 py-2.5 rounded-xl font-bold text-sm hover:shadow-lg transition-all inline-flex items-center gap-2"
+            >
+              <SiWhatsapp className="w-4 h-4" />
+              WhatsApp
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-accent transition-colors shrink-0"
+            className="lg:hidden text-navy p-2"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -85,31 +92,40 @@ export default function HeaderNav() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4 space-y-3">
-            <nav>
-              <ul className="space-y-2">
-                {[
-                  { label: 'Home', id: 'home' },
-                  { label: 'About', id: 'about' },
-                  { label: 'Services', id: 'services' },
-                  { label: 'Projects', id: 'projects' },
-                  { label: 'Contact', id: 'contact' }
-                ].map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToSection(item.id)}
-                      className="w-full text-left px-4 py-2.5 text-sm font-semibold text-foreground rounded-lg hover:bg-navy-hover transition-colors"
-                    >
-                      {item.label}
-                    </button>
-                  </li>
-                ))}
-              </ul>
+          <div className="lg:hidden border-t border-border bg-white">
+            <nav className="flex flex-col px-4 py-4 space-y-3">
+              {[
+                { label: 'Home', id: 'home' },
+                { label: 'About', id: 'about' },
+                { label: 'Services', id: 'services' },
+                { label: 'Projects', id: 'portfolio' },
+                { label: 'Contact', id: 'contact' }
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-navy hover:text-navy-dark text-left font-semibold py-2"
+                >
+                  {item.label}
+                </button>
+              ))}
+              <a
+                href={CONTACT_INFO.phone.tel}
+                className="bg-white border border-border text-navy px-5 py-2.5 rounded-xl font-bold text-center inline-flex items-center justify-center gap-2"
+              >
+                <Phone className="w-4 h-4" />
+                Call Now
+              </a>
+              <a
+                href={CONTACT_INFO.whatsapp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-br from-navy to-navy-dark text-white px-5 py-2.5 rounded-xl font-bold text-center inline-flex items-center justify-center gap-2"
+              >
+                <SiWhatsapp className="w-4 h-4" />
+                WhatsApp
+              </a>
             </nav>
-            <div className="flex flex-col gap-2 pt-2">
-              <CallNowButton variant="outline" size="default" className="w-full" />
-              <WhatsAppButton variant="primary" size="default" className="w-full" />
-            </div>
           </div>
         )}
       </div>

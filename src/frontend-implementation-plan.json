@@ -1,74 +1,77 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Support and display two phone numbers across homepage contact areas",
+  "title": "Update contact details, business hours, and social links (frontend)",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Extend central contact config to expose two phone numbers with correct display strings and tel links (keeping backward compatibility).",
+      "summary": "Update centralized frontend contact configuration with the provided address, phones, email, WhatsApp, and business hours while preserving primary-phone CTA support.",
       "acceptanceCriteria": [
-        "`frontend/src/config/contact.ts` contains both phone numbers in a structured form usable by multiple components (e.g., a list/array plus any backward-compatible fields if needed).",
-        "The stored display strings match exactly: \"+91 7734920728\" and \"+91 7297963005\".",
-        "The stored `tel:` links correctly map to `tel:+917734920728` and `tel:+917297963005`."
+        "`frontend/src/config/contact.ts` reflects the updated address, email, WhatsApp number/url, and includes both phone numbers (while still supporting a primary phone for single-phone CTAs).",
+        "All existing CTAs (HeaderNav, TopBar, FloatingWhatsAppButton, ContactSection, Footer) continue to render valid `tel:` and `https://wa.me/` links after the config update."
       ],
       "file_operations": [
         {
           "path": "frontend/src/config/contact.ts",
           "operation": "modify",
-          "description": "Update CONTACT_INFO to include a structured phone list (e.g., `phones: [{display,tel}, ...]`) containing exactly \"+91 7734920728\" (tel:+917734920728) and \"+91 7297963005\" (tel:+917297963005). Preserve backward compatibility by keeping/deriving existing `CONTACT_INFO.phone` fields as the primary/first number so existing CTAs keep working deterministically."
+          "description": "Update CONTACT_INFO to match the provided business details exactly: address \"Ricco Industrial Area Sujangarh Rajasthan:- 331507\", phones \"+91 7734920728\" and \"+91 7297963005\" (including valid `tel:` values), email \"ccsolutions0055@gmail.com\", WhatsApp number \"+91 7734920728\" with wa.me link using 917734920728, and business hours \"Mon - Sat: 08:00 AM - 06:00 PM\". Keep an explicit primary phone for single-phone CTAs while also exposing a phones array for multi-phone UI."
+        },
+        {
+          "path": "frontend/src/lib/whatsapp.ts",
+          "operation": "modify",
+          "description": "Confirm WhatsApp URL composition continues to work with the updated CONTACT_INFO.whatsapp.url and still generates valid message links."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Render both phone numbers as clickable tel links anywhere the homepage shows a phone number (top bar, footer, contact section contact-info).",
+      "summary": "Update TopBar, Contact section, and Footer to show both phone numbers and business hours with consistent English labels and formatting.",
       "acceptanceCriteria": [
-        "Top bar shows both phone numbers and each is clickable to dial via `tel:`.",
-        "Footer contact area shows both phone numbers and each is clickable to dial via `tel:`.",
-        "Contact section contact-info block shows both phone numbers and each is clickable to dial via `tel:`.",
-        "No phone number currently shown on the homepage remains as a single-number-only rendering (unless it is intentionally WhatsApp-only)."
+        "ContactSection shows both phone numbers as clickable phone links and shows business hours text (e.g., \"Mon - Sat: 08:00 AM - 06:00 PM\").",
+        "Footer contact area includes business hours and both phone numbers (each clickable).",
+        "TopBar continues to show at least the primary phone and WhatsApp; if space allows, it additionally exposes the second phone and/or hours without breaking mobile layout."
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/king-kingdom/contact/PhoneNumberLinks.tsx",
-          "operation": "create",
-          "description": "Create a small reusable renderer that consumes `CONTACT_INFO.phones` and displays both numbers as clickable `tel:` links with consistent formatting/separators for reuse in TopBar, Footer, and ContactSection."
+          "operation": "modify",
+          "description": "Implement a small reusable PhoneNumberLinks component that renders both configured phone numbers as clickable `tel:` links with consistent formatting for use in contact-related areas."
         },
         {
           "path": "frontend/src/components/king-kingdom/TopBar.tsx",
           "operation": "modify",
-          "description": "Replace the single phone rendering with the reusable PhoneNumberLinks component (or equivalent map over `CONTACT_INFO.phones`) so the top bar shows both phone numbers as `tel:` links."
-        },
-        {
-          "path": "frontend/src/components/king-kingdom/Footer.tsx",
-          "operation": "modify",
-          "description": "Update the Contact list to render both phone numbers (clickable `tel:` links) from `CONTACT_INFO.phones` instead of a single `CONTACT_INFO.phone` value."
+          "description": "Update TopBar to keep showing primary phone and WhatsApp, and (responsive/space-permitting) additionally show the secondary phone and/or business hours without breaking the mobile layout, using CONTACT_INFO as the source of truth."
         },
         {
           "path": "frontend/src/components/king-kingdom/sections/ContactSection.tsx",
           "operation": "modify",
-          "description": "Update the contact-info block to render both phone numbers as clickable `tel:` links (using `CONTACT_INFO.phones`/PhoneNumberLinks), while keeping WhatsApp link behavior as WhatsApp-only."
+          "description": "Replace the single-phone rendering with both phone numbers as clickable `tel:` links (reusing PhoneNumberLinks) and add a business hours row displaying CONTACT_INFO.hours with an English label."
+        },
+        {
+          "path": "frontend/src/components/king-kingdom/Footer.tsx",
+          "operation": "modify",
+          "description": "Update the Footer contact area to render both phone numbers (each clickable) and include a business hours line sourced from CONTACT_INFO.hours, keeping formatting consistent with ContactSection."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Keep all phone-call CTAs working with deterministic behavior by targeting the primary/first phone number and avoiding broken links/TS errors.",
+      "summary": "Ensure Facebook/Instagram/YouTube links use the provided URLs and are visible in the UI with accessible aria-labels and safe new-tab behavior.",
       "acceptanceCriteria": [
-        "The \"Call Now\" button in the header navigation works and opens a `tel:` link for a valid phone number.",
-        "The \"Call Now\" button in the contact section works and opens a `tel:` link for a valid phone number.",
-        "No TypeScript errors are introduced by the contact config change (project builds successfully)."
+        "The active social links include Facebook, Instagram, and YouTube with the exact provided URLs.",
+        "Users can click the social links from the UI (open in a new tab with `rel=\"noopener noreferrer\"`).",
+        "Each rendered social link has an appropriate accessible label (e.g., \"Visit our Facebook page\")."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/king-kingdom/cta/CallNowButton.tsx",
+          "path": "frontend/src/config/socialLinks.ts",
           "operation": "modify",
-          "description": "Ensure CallNowButton continues to use a deterministic primary phone `tel:` (e.g., `CONTACT_INFO.phone.tel` derived from the first entry in `CONTACT_INFO.phones`) so the header navigation \"Call Now\" remains valid after adding the second number."
+          "description": "Verify the socialLinks configuration contains the exact provided Facebook/Instagram/YouTube URLs and appropriate ariaLabel strings; keep any non-provided networks disabled/empty so only valid links render."
         },
         {
-          "path": "frontend/src/components/king-kingdom/sections/ContactSection.tsx",
+          "path": "frontend/src/components/king-kingdom/Footer.tsx",
           "operation": "modify",
-          "description": "Ensure the contact section \"Call Now\" CTA continues to link to the deterministic primary phone `tel:` (the first number), independent of how the two-number display is rendered."
+          "description": "Render active social links (Facebook, Instagram, YouTube) somewhere appropriate in the Footer using getActiveSocialLinks(), ensuring each link opens in a new tab with `rel=\"noopener noreferrer\"` and includes the configured accessible aria-label."
         }
       ]
     }

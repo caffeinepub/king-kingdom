@@ -15,6 +15,10 @@ export default {
             }
         },
         extend: {
+            fontFamily: {
+                sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+                heading: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+            },
             colors: {
                 border: 'oklch(var(--border))',
                 input: 'oklch(var(--input))',
@@ -70,7 +74,7 @@ export default {
                 '3xl': 'calc(var(--radius) + 12px)'
             },
             boxShadow: {
-                xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
+                xs: '0 1px 2px 0 rgba(11, 27, 58, 0.05)',
                 sm: '0 2px 8px rgba(11, 27, 58, 0.06)',
                 DEFAULT: '0 4px 16px rgba(11, 27, 58, 0.08)',
                 lg: '0 10px 25px rgba(11, 27, 58, 0.1)',
