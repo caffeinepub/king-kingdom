@@ -48,8 +48,10 @@ export default function WhyChooseSection() {
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
-              <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5">
-                <Icon className="w-8 h-8 text-white mb-3" />
+              <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 mb-3">
+                  <Icon className="w-6 h-6 text-white" strokeWidth={2} />
+                </div>
                 <h4 className="text-base font-bold mb-2">{reason.title}</h4>
                 <p className="text-sm text-white/80 leading-relaxed">{reason.description}</p>
               </div>

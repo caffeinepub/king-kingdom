@@ -36,16 +36,16 @@ export default function ProcessSection() {
     <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-[10%]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-9">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-2.5">How We Work</h2>
-          <p className="text-base text-muted-foreground">
+          <h2 className="section-title">How We Work</h2>
+          <p className="section-subtitle">
             Simple and transparent process for every construction project.
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
           {steps.map((step, index) => (
-            <div key={index} className="bg-white border border-border rounded-2xl p-5 shadow-sm">
-              <div className="inline-flex items-center justify-center w-9.5 h-9.5 rounded-xl bg-gradient-to-br from-navy to-navy-dark text-white font-extrabold text-base mb-3 shadow-lg">
+            <div key={index} className="premium-card hover:shadow-lg transition-all">
+              <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-navy to-navy-dark text-white font-extrabold text-base mb-3 shadow-lg">
                 {step.number}
               </div>
               <h4 className="text-navy font-bold mb-2">{step.title}</h4>

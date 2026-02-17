@@ -5,6 +5,7 @@ import HighlightsSection from './components/king-kingdom/sections/HighlightsSect
 import AboutSection from './components/king-kingdom/sections/AboutSection';
 import ServicesSection from './components/king-kingdom/sections/ServicesSection';
 import PortfolioSection from './components/king-kingdom/sections/PortfolioSection';
+import ConstructionPhotosSection from './components/king-kingdom/sections/ConstructionPhotosSection';
 import WhyChooseSection from './components/king-kingdom/sections/WhyChooseSection';
 import ProcessSection from './components/king-kingdom/sections/ProcessSection';
 import ContactSection from './components/king-kingdom/sections/ContactSection';
@@ -22,6 +23,7 @@ function App() {
         <AboutSection />
         <ServicesSection />
         <PortfolioSection />
+        <ConstructionPhotosSection />
         <WhyChooseSection />
         <ProcessSection />
         <ContactSection />

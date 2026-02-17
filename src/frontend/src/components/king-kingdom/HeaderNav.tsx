@@ -32,12 +32,14 @@ export default function HeaderNav() {
         <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
           {/* Brand */}
           <button onClick={() => scrollToSection('home')} className="flex items-center gap-3 group shrink-0 min-w-[200px]">
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-navy to-navy-dark flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-lg">
-              KK
-            </div>
+            <img 
+              src="/assets/generated/ccs-logo-icon.dim_256x256.png" 
+              alt="Complete Construction Solutions Logo" 
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain"
+            />
             <div className="hidden sm:block">
-              <h1 className="text-base sm:text-lg font-bold text-navy leading-tight">King Kingdom</h1>
-              <p className="text-[10px] sm:text-xs text-muted-foreground">Complete Construction Solutions</p>
+              <h1 className="text-[11px] sm:text-xs font-semibold text-muted-foreground leading-tight">Group of King Kingdom</h1>
+              <p className="text-sm sm:text-base font-bold text-navy leading-tight">Complete Construction Solutions</p>
             </div>
           </button>
 

@@ -6,9 +6,9 @@ import { getActiveSocialLinks } from '@/config/socialLinks';
 export default function Footer() {
   const getAppIdentifier = () => {
     try {
-      return encodeURIComponent(window.location.hostname || 'king-kingdom');
+      return encodeURIComponent(window.location.hostname || 'complete-construction-solutions');
     } catch {
-      return 'king-kingdom';
+      return 'complete-construction-solutions';
     }
   };
 
@@ -42,9 +42,19 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
           <div>
-            <h4 className="text-white font-bold mb-2.5">King Kingdom</h4>
+            <div className="flex items-center gap-3 mb-3">
+              <img 
+                src="/assets/generated/ccs-logo-icon.dim_256x256.png" 
+                alt="Complete Construction Solutions Logo" 
+                className="w-10 h-10 rounded-lg object-contain"
+              />
+              <div>
+                <p className="text-white/60 text-[10px] font-medium">Group of King Kingdom</p>
+                <h4 className="text-white font-bold text-base leading-tight">Complete Construction Solutions</h4>
+              </div>
+            </div>
             <p className="text-sm leading-relaxed">
-              King Kingdom is a professional construction company in Sujangarh, Rajasthan providing
+              Complete Construction Solutions (CCS) is a professional construction company under Group of King Kingdom in Sujangarh, Rajasthan providing
               complete construction solutions including renovation, finishing, interior work, and
               construction material supply.
             </p>
@@ -122,7 +132,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-4 space-y-2">
           <p className="text-xs text-center text-white/60">
-            © {new Date().getFullYear()} King Kingdom | Complete Construction Solutions. All Rights Reserved.
+            © {new Date().getFullYear()} Group of King Kingdom | Complete Construction Solutions (CCS). All Rights Reserved.
           </p>
           <p className="text-xs text-center text-white/50 flex items-center justify-center gap-1.5">
             Built with <Heart className="w-3 h-3 text-red-400 fill-red-400" /> using{' '}

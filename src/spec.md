@@ -1,12 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Update site-wide contact details, business hours, and social links to match the provided King Kingdom business information.
+**Goal:** Ensure the Complete Construction Solutions (CCS) logo is used consistently across the site’s primary branding areas.
 
 **Planned changes:**
-- Update the centralized frontend contact configuration (`frontend/src/config/contact.ts`) with the new address, email, WhatsApp number/link (wa.me using `917734920728`), business hours, and both phone numbers while keeping a primary phone for single-phone CTAs.
-- Adjust contact-related UI areas (TopBar, Contact section, Footer) to display both phone numbers as clickable `tel:` links and show business hours with consistent English formatting, without breaking mobile layout.
-- Set Facebook, Instagram, and YouTube links to the provided URLs, render them in an appropriate UI location (e.g., Footer), open in a new tab with `rel="noopener noreferrer"`, and include accessible aria-labels.
-- Update backend contact details returned by `getContactDetails()` in `backend/main.mo` to match the new address, phones array, WhatsApp, email, and business hours.
+- Update the header navigation brand area to use `/assets/generated/ccs-logo-icon.dim_256x256.png` and set an English alt text referencing Complete Construction Solutions (CCS).
+- Update the footer brand block to use `/assets/generated/ccs-logo-icon.dim_256x256.png` and set an English alt text referencing Complete Construction Solutions (CCS).
+- Update the HTML favicon in `frontend/index.html` to `/assets/generated/ccs-favicon.dim_64x64.png`.
 
-**User-visible outcome:** Visitors see the correct address, email, WhatsApp link, business hours, and both phone numbers across the site and can click updated social links (Facebook/Instagram/YouTube) from the UI.
+**User-visible outcome:** The header, footer, and browser tab favicon all display CCS branding consistently with correct English alt text.

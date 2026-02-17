@@ -50,7 +50,7 @@ export default function ContactSection() {
     if (validateForm()) {
       setIsSubmitting(true);
       
-      const message = `Hello King Kingdom,\n\nName: ${formData.name}\nPhone: ${formData.phone}\nService Required: ${formData.service}\n\nMessage: ${formData.message}`;
+      const message = `Hello Complete Construction Solutions (CCS),\n\nName: ${formData.name}\nPhone: ${formData.phone}\nService Required: ${formData.service}\n\nMessage: ${formData.message}`;
       
       openWhatsApp(message);
       
@@ -70,17 +70,18 @@ export default function ContactSection() {
     <section id="contact" className="py-16 md:py-20 px-4 sm:px-6 lg:px-[10%] bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-9">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-2.5">Contact Us</h2>
-          <p className="text-base text-muted-foreground">
+          <h2 className="section-title">Contact Us</h2>
+          <p className="section-subtitle">
             Call or WhatsApp us for free consultation, quotation and site visit.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-4">
           {/* Contact Info */}
-          <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
-            <h3 className="text-navy font-bold text-xl mb-2.5">King Kingdom</h3>
-            <p className="font-semibold text-foreground mb-4">Complete Construction Solutions</p>
+          <div className="premium-card">
+            <p className="text-muted-foreground text-xs font-semibold mb-1">Group of King Kingdom</p>
+            <h3 className="text-navy font-bold text-xl mb-2">Complete Construction Solutions (CCS)</h3>
+            <p className="font-semibold text-foreground mb-4">Foundation to Finishing</p>
             
             <div className="space-y-3.5">
               <div className="flex items-start gap-3">
@@ -100,7 +101,7 @@ export default function ContactSection() {
                     href={CONTACT_INFO.whatsapp.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-navy text-sm"
+                    className="text-muted-foreground hover:text-navy text-sm transition-colors"
                   >
                     {CONTACT_INFO.whatsapp.display}
                   </a>
@@ -113,7 +114,7 @@ export default function ContactSection() {
                   <p className="font-semibold text-navy text-sm mb-1">Email</p>
                   <a 
                     href={`mailto:${CONTACT_INFO.email}`}
-                    className="text-muted-foreground hover:text-navy text-sm"
+                    className="text-muted-foreground hover:text-navy text-sm transition-colors"
                   >
                     {CONTACT_INFO.email}
                   </a>
@@ -134,14 +135,14 @@ export default function ContactSection() {
                 href={CONTACT_INFO.whatsapp.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-br from-navy to-navy-dark text-white px-5 py-2.5 rounded-xl font-bold hover:shadow-lg transition-all inline-flex items-center gap-2"
+                className="premium-btn-primary inline-flex items-center gap-2"
               >
                 <SiWhatsapp className="w-4 h-4" />
                 WhatsApp Now
               </a>
               <a
                 href={CONTACT_INFO.phone.tel}
-                className="bg-white border border-border text-navy px-5 py-2.5 rounded-xl font-bold hover:bg-navy-light/30 transition-all inline-flex items-center gap-2"
+                className="premium-btn-secondary inline-flex items-center gap-2"
               >
                 <SiWhatsapp className="w-4 h-4" />
                 Call Now
@@ -150,7 +151,7 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+          <div className="premium-card">
             <h3 className="text-navy font-bold text-xl mb-4">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -207,7 +208,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-br from-navy to-navy-dark text-white px-5 py-3 rounded-xl font-bold hover:shadow-lg transition-all disabled:opacity-50"
+                className="premium-btn-primary w-full disabled:opacity-50"
               >
                 Send on WhatsApp
               </button>

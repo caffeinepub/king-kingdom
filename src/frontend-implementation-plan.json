@@ -1,77 +1,47 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update contact details, business hours, and social links (frontend)",
+  "title": "Apply CCS logo branding across header, footer, and favicon",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Update centralized frontend contact configuration with the provided address, phones, email, WhatsApp, and business hours while preserving primary-phone CTA support.",
+      "summary": "Use the generated CCS logo assets consistently in header brand, footer brand block, and HTML favicon (with correct English alt text).",
       "acceptanceCriteria": [
-        "`frontend/src/config/contact.ts` reflects the updated address, email, WhatsApp number/url, and includes both phone numbers (while still supporting a primary phone for single-phone CTAs).",
-        "All existing CTAs (HeaderNav, TopBar, FloatingWhatsAppButton, ContactSection, Footer) continue to render valid `tel:` and `https://wa.me/` links after the config update."
+        "Header brand area renders the CCS logo icon from /assets/generated/ccs-logo-icon.dim_256x256.png.",
+        "Footer brand area renders the CCS logo icon from /assets/generated/ccs-logo-icon.dim_256x256.png.",
+        "The browser tab/favicon uses /assets/generated/ccs-favicon.dim_64x64.png via frontend/index.html.",
+        "All logo <img> elements have English alt text that references Complete Construction Solutions (CCS)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/config/contact.ts",
-          "operation": "modify",
-          "description": "Update CONTACT_INFO to match the provided business details exactly: address \"Ricco Industrial Area Sujangarh Rajasthan:- 331507\", phones \"+91 7734920728\" and \"+91 7297963005\" (including valid `tel:` values), email \"ccsolutions0055@gmail.com\", WhatsApp number \"+91 7734920728\" with wa.me link using 917734920728, and business hours \"Mon - Sat: 08:00 AM - 06:00 PM\". Keep an explicit primary phone for single-phone CTAs while also exposing a phones array for multi-phone UI."
+          "path": "frontend/public/assets/generated/ccs-logo-icon.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the generated CCS square icon logo to public assets so it can be used by header and footer branding."
         },
         {
-          "path": "frontend/src/lib/whatsapp.ts",
-          "operation": "modify",
-          "description": "Confirm WhatsApp URL composition continues to work with the updated CONTACT_INFO.whatsapp.url and still generates valid message links."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Update TopBar, Contact section, and Footer to show both phone numbers and business hours with consistent English labels and formatting.",
-      "acceptanceCriteria": [
-        "ContactSection shows both phone numbers as clickable phone links and shows business hours text (e.g., \"Mon - Sat: 08:00 AM - 06:00 PM\").",
-        "Footer contact area includes business hours and both phone numbers (each clickable).",
-        "TopBar continues to show at least the primary phone and WhatsApp; if space allows, it additionally exposes the second phone and/or hours without breaking mobile layout."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/king-kingdom/contact/PhoneNumberLinks.tsx",
-          "operation": "modify",
-          "description": "Implement a small reusable PhoneNumberLinks component that renders both configured phone numbers as clickable `tel:` links with consistent formatting for use in contact-related areas."
+          "path": "frontend/public/assets/generated/ccs-logo-horizontal.dim_800x240.png",
+          "operation": "create",
+          "description": "Add the generated CCS horizontal logo lockup to public assets for any future primary branding usage (even if not currently rendered)."
         },
         {
-          "path": "frontend/src/components/king-kingdom/TopBar.tsx",
-          "operation": "modify",
-          "description": "Update TopBar to keep showing primary phone and WhatsApp, and (responsive/space-permitting) additionally show the secondary phone and/or business hours without breaking the mobile layout, using CONTACT_INFO as the source of truth."
+          "path": "frontend/public/assets/generated/ccs-favicon.dim_64x64.png",
+          "operation": "create",
+          "description": "Add the generated CCS favicon to public assets so it can be referenced from frontend/index.html."
         },
         {
-          "path": "frontend/src/components/king-kingdom/sections/ContactSection.tsx",
+          "path": "frontend/index.html",
           "operation": "modify",
-          "description": "Replace the single-phone rendering with both phone numbers as clickable `tel:` links (reusing PhoneNumberLinks) and add a business hours row displaying CONTACT_INFO.hours with an English label."
+          "description": "Ensure the favicon <link> references /assets/generated/ccs-favicon.dim_64x64.png and remove/avoid any legacy favicon references that conflict with CCS branding."
+        },
+        {
+          "path": "frontend/src/components/king-kingdom/HeaderNav.tsx",
+          "operation": "modify",
+          "description": "Ensure the header navigation brand area uses /assets/generated/ccs-logo-icon.dim_256x256.png and set an English alt attribute referencing Complete Construction Solutions (CCS)."
         },
         {
           "path": "frontend/src/components/king-kingdom/Footer.tsx",
           "operation": "modify",
-          "description": "Update the Footer contact area to render both phone numbers (each clickable) and include a business hours line sourced from CONTACT_INFO.hours, keeping formatting consistent with ContactSection."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Ensure Facebook/Instagram/YouTube links use the provided URLs and are visible in the UI with accessible aria-labels and safe new-tab behavior.",
-      "acceptanceCriteria": [
-        "The active social links include Facebook, Instagram, and YouTube with the exact provided URLs.",
-        "Users can click the social links from the UI (open in a new tab with `rel=\"noopener noreferrer\"`).",
-        "Each rendered social link has an appropriate accessible label (e.g., \"Visit our Facebook page\")."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/config/socialLinks.ts",
-          "operation": "modify",
-          "description": "Verify the socialLinks configuration contains the exact provided Facebook/Instagram/YouTube URLs and appropriate ariaLabel strings; keep any non-provided networks disabled/empty so only valid links render."
-        },
-        {
-          "path": "frontend/src/components/king-kingdom/Footer.tsx",
-          "operation": "modify",
-          "description": "Render active social links (Facebook, Instagram, YouTube) somewhere appropriate in the Footer using getActiveSocialLinks(), ensuring each link opens in a new tab with `rel=\"noopener noreferrer\"` and includes the configured accessible aria-label."
+          "description": "Ensure the footer brand block uses /assets/generated/ccs-logo-icon.dim_256x256.png and set an English alt attribute referencing Complete Construction Solutions (CCS)."
         }
       ]
     }

@@ -20,19 +20,19 @@ export default function HeroSection() {
               Complete Construction Solutions Under One Roof
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 max-w-xl">
-              King Kingdom provides professional construction, renovation, interior finishing, and
+              Complete Construction Solutions (CCS), under Group of King Kingdom, provides professional construction, renovation, interior finishing, and
               material supply services with quality workmanship, trusted dealing, and on-time delivery.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mb-0">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="bg-gradient-to-br from-navy to-navy-dark text-white px-6 py-3 rounded-xl font-bold hover:shadow-xl transition-all"
+                className="premium-btn-primary"
               >
                 Get Free Quotation
               </button>
               <button
                 onClick={() => scrollToSection('portfolio')}
-                className="bg-white border border-border text-navy px-6 py-3 rounded-xl font-bold hover:bg-navy-light/30 transition-all"
+                className="premium-btn-secondary"
               >
                 View Projects
               </button>

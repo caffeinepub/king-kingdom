@@ -1,92 +1,44 @@
 {
   "kind": "build_request",
-  "title": "Update site contact details, business hours, and social links",
-  "projectName": "King Kingdom",
+  "title": "Ensure site logo branding is CCS",
+  "projectName": "Complete Construction Solutions",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the centralized frontend contact configuration to match the provided business details: address \"Ricco Industrial Area Sujangarh Rajasthan:- 331507\", phone numbers \"+91 7734920728\" and \"+91 7297963005\", email \"ccsolutions0055@gmail.com\", WhatsApp number \"+91 7734920728\" (wa.me link should use 917734920728), and business hours \"Mon - Sat: 08:00 AM - 06:00 PM\".",
+      "text": "Ensure the site uses the CCS logo consistently in all primary branding locations by using the generated CCS logo assets in the header navigation brand area, the footer brand block, and the HTML favicon.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "recent-messages-6"
         ],
         "quotes": [
-          "Ricco Industrial Area Sujangarh Rajasthan:- 331507\n📞\n+91 7734920728\n+91 7297963005\n✉️ \nccsolutions0055@gmail.com\nwhatsap number\n+91 7734920728\n...\nTime\nMon - Sat: 08:00 AM - 06:00 PM"
+          "Logo ccs ka hona chahiye"
         ]
       },
       "acceptanceCriteria": [
-        "`frontend/src/config/contact.ts` reflects the updated address, email, WhatsApp number/url, and includes both phone numbers (while still supporting a primary phone for single-phone CTAs).",
-        "All existing CTAs (HeaderNav, TopBar, FloatingWhatsAppButton, ContactSection, Footer) continue to render valid `tel:` and `https://wa.me/` links after the config update."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Update the UI to display both phone numbers and the business hours in the contact-related areas (TopBar, Contact section, and Footer) using English labels and consistent formatting.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "+91 7734920728\n+91 7297963005\nTime\nMon - Sat: 08:00 AM - 06:00 PM"
-        ]
-      },
-      "acceptanceCriteria": [
-        "ContactSection shows both phone numbers as clickable phone links and shows business hours text (e.g., \"Mon - Sat: 08:00 AM - 06:00 PM\").",
-        "Footer contact area includes business hours and both phone numbers (each clickable).",
-        "TopBar continues to show at least the primary phone and WhatsApp; if space allows, it additionally exposes the second phone and/or hours without breaking mobile layout."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Ensure the social media links are set to the provided Facebook/Instagram/YouTube URLs and are visible to users somewhere appropriate (e.g., Footer social icons/links) with accessible aria-labels.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "https://www.facebook.com/profile.php?id=100034789162284\n\nhttps://www.instagram.com/king_kingdom0055?igsh=MXBtNXptM2d2M3NybQ==\n\nhttps://www.youtube.com/@kingkingdomsolutions"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The active social links include Facebook, Instagram, and YouTube with the exact provided URLs.",
-        "Users can click the social links from the UI (open in a new tab with `rel=\"noopener noreferrer\"`).",
-        "Each rendered social link has an appropriate accessible label (e.g., \"Visit our Facebook page\")."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Update the backend `getContactDetails()` data to match the provided business details for address, phone numbers, WhatsApp number, email, and business hours.",
-      "target": "backend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Ricco Industrial Area Sujangarh Rajasthan:- 331507\n+91 7734920728\n+91 7297963005\nccsolutions0055@gmail.com\nwhatsap number\n+91 7734920728\nMon - Sat: 08:00 AM - 06:00 PM"
-        ]
-      },
-      "acceptanceCriteria": [
-        "`backend/main.mo` contact details values (address, phones array, whatsapp, email, hours) match the provided details exactly in English punctuation/format.",
-        "`getContactDetails()` returns the updated values when called."
+        "Header brand area renders the CCS logo icon from /assets/generated/ccs-logo-icon.dim_256x256.png.",
+        "Footer brand area renders the CCS logo icon from /assets/generated/ccs-logo-icon.dim_256x256.png.",
+        "The browser tab/favicon uses /assets/generated/ccs-favicon.dim_64x64.png via frontend/index.html.",
+        "All logo <img> elements have English alt text that references Complete Construction Solutions (CCS)."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under `frontend/src/components/ui` or other paths listed in `frontend.immutablePaths`.",
-    "Keep all Motoko logic in the single actor `backend/main.mo`; only add `backend/migration.mo` if a stable-state upgrade is required."
+    "Do not edit files under frontend/src/components/ui.",
+    "Keep the backend as a single Motoko actor (no additional backend services)."
   ],
   "nonGoals": [
-    "Adding new pages, services, or marketing copy beyond updating contact details, hours, and social links.",
-    "Implementing third-party authentication or integrations beyond the existing Internet Identity setup.",
-    "Adding real-time messaging/chat or storing contact details in an external database."
+    "Changing contact information, phone numbers, WhatsApp links, or form behavior.",
+    "Adding new authentication providers beyond Internet Identity."
   ],
   "imageRequirements": {
     "required": [],
-    "edits": []
+    "edits": [
+      "Create a new square icon logo asset from the uploaded logo (kk-logo-icon.dim_256x256.png > ccs-logo-icon.dim_256x256.png)",
+      "Create a new horizontal logo lockup asset from the uploaded logo (kk-logo-horizontal.dim_800x240.png > ccs-logo-horizontal.dim_800x240.png)",
+      "Create a new favicon derived from the uploaded logo (king-kingdom-favicon.dim_64x64.png > ccs-favicon.dim_64x64.png)"
+    ]
   },
   "userProfileUpdate": {
     "goalsToAdd": [],
