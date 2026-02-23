@@ -1,50 +1,22 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove CCS logo imagery from header, footer, and favicon",
+  "title": "Remove hero section background image",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Remove CCS logo image from the header brand area while keeping brand text and Home scroll behavior.",
-      "acceptanceCriteria": [
-        "Header navigation no longer renders /assets/generated/ccs-logo-icon.dim_256x256.png.",
-        "The header brand area still provides a clickable control to scroll to the Home section.",
-        "Header layout remains aligned and visually balanced on mobile and desktop breakpoints."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/king-kingdom/HeaderNav.tsx",
-          "operation": "modify",
-          "description": "Remove the brand <img> that references /assets/generated/ccs-logo-icon.dim_256x256.png and adjust the brand button layout so it remains a clickable text-only control that scrolls to the Home section, keeping spacing/alignment balanced across mobile and desktop."
-        }
-      ]
-    },
-    {
       "id": "REQ-2",
-      "summary": "Remove CCS logo image from the footer brand block while preserving brand text and clean spacing.",
+      "summary": "Remove the background image from the hero section and replace it with a solid color or gradient background while preserving all content and styling",
       "acceptanceCriteria": [
-        "Footer no longer renders /assets/generated/ccs-logo-icon.dim_256x256.png.",
-        "Footer brand block spacing/alignment looks correct without the image."
+        "Hero section no longer displays the cityscape background image",
+        "Hero section has an appropriate solid color or gradient background instead",
+        "All text, CTAs, and layout elements remain properly visible and styled",
+        "Section maintains its visual hierarchy and readability"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/king-kingdom/Footer.tsx",
+          "path": "frontend/src/components/king-kingdom/sections/HeroSection.tsx",
           "operation": "modify",
-          "description": "Remove the footer brand <img> that references /assets/generated/ccs-logo-icon.dim_256x256.png and update the surrounding flex/gap/typography wrappers so the brand text block remains well-aligned with appropriate spacing without the image."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Remove the generated CCS favicon reference from the HTML entry file.",
-      "acceptanceCriteria": [
-        "frontend/index.html no longer references /assets/generated/ccs-favicon.dim_64x64.png as the favicon."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/index.html",
-          "operation": "modify",
-          "description": "Remove the <link rel=\"icon\"> reference to /assets/generated/ccs-favicon.dim_64x64.png so the site no longer uses the generated CCS logo favicon."
+          "description": "Remove the background image styling from the hero section container and replace it with a solid navy color or navy-to-blue gradient background. Update the className to remove background-image related styles while preserving the overlay, positioning, and all other layout properties. Ensure text contrast and readability are maintained with the new background."
         }
       ]
     }

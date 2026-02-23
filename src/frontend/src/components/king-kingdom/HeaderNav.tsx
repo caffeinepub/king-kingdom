@@ -32,9 +32,18 @@ export default function HeaderNav() {
         <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
           {/* Brand */}
           <button onClick={() => scrollToSection('home')} className="flex items-center group shrink-0">
-            <div>
-              <h1 className="text-[11px] sm:text-xs font-semibold text-muted-foreground leading-tight">Group of King Kingdom</h1>
-              <p className="text-sm sm:text-base font-bold text-navy leading-tight">Complete Construction Solutions</p>
+            <div className="logo-brand-wrapper">
+              <img 
+                src="/assets/generated/ccs-logo-square.dim_1024x1024.png" 
+                alt="CCS Logo" 
+                className="logo-image"
+                width="44"
+                height="44"
+              />
+              <div>
+                <h1 className="text-[11px] sm:text-xs font-semibold text-muted-foreground leading-tight">Group of King Kingdom</h1>
+                <p className="text-sm sm:text-base font-bold text-navy leading-tight">Complete Construction Solutions</p>
+              </div>
             </div>
           </button>
 

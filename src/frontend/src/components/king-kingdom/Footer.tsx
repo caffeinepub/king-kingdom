@@ -42,9 +42,18 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
           <div>
-            <div className="mb-3">
-              <p className="text-white/60 text-[10px] font-medium">Group of King Kingdom</p>
-              <h4 className="text-white font-bold text-base leading-tight">Complete Construction Solutions</h4>
+            <div className="flex items-center gap-2.5 sm:gap-3 mb-3">
+              <img 
+                src="/assets/generated/ccs-logo-square.dim_1024x1024.png" 
+                alt="CCS Logo" 
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl object-contain transition-all hover:scale-105"
+                width="48"
+                height="48"
+              />
+              <div>
+                <p className="text-white/60 text-[10px] sm:text-[11px] font-medium leading-tight">Group of King Kingdom</p>
+                <h4 className="text-white font-bold text-base sm:text-lg leading-tight">Complete Construction Solutions</h4>
+              </div>
             </div>
             <p className="text-sm leading-relaxed">
               Complete Construction Solutions (CCS) is a professional construction company under Group of King Kingdom in Sujangarh, Rajasthan providing

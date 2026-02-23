@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Remove CCS logo imagery from the site header, footer, and favicon so branding appears as text only.
+**Goal:** Remove the background image from the hero section and replace it with a solid color or gradient.
 
 **Planned changes:**
-- Update the header brand area to render brand text only (no CCS logo image) while keeping the brand control clickable to scroll to the Home section.
-- Update the footer brand block to render brand text only (no CCS logo image) and adjust spacing/alignment as needed.
-- Remove the favicon reference to `/assets/generated/ccs-favicon.dim_64x64.png` from `frontend/index.html`.
+- Remove the cityscape background image from the hero section
+- Apply a solid color or gradient background to the hero section
+- Ensure all text and interactive elements remain visible and properly styled
 
-**User-visible outcome:** The site shows brand text (no logo image) in the header and footer, and no longer uses the CCS logo favicon, with layout remaining visually balanced across mobile and desktop.
+**User-visible outcome:** The hero section displays with a clean solid color or gradient background instead of the cityscape image, while maintaining all content and functionality.

@@ -4,42 +4,19 @@
   "summary": "New project",
   "architectural_notes": [],
   "known_issues": [],
-  "isFixRequest": true,
+  "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-remove-the-ccs-logo-image-from-the-header-brand-area-so-the-navigation-header-displays-brand-text-only-no-logo-image",
-      "title": "Remove the CCS logo image from the header brand area so the navigation header displays brand text only (no logo image).",
-      "reqIds": [
-        "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-remove-the-ccs-logo-image-from-the-footer-brand-block-so-the-footer-displays-brand-text-only-no-logo-image",
-      "title": "Remove the CCS logo image from the footer brand block so the footer displays brand text only (no logo image).",
+      "id": "feature-remove-the-background-image-from-the-hero-section-in-herosection-tsx-replacing-it-with-a-solid-color-or-gradient-background-while-preserving-all-other-content-and-styling",
+      "title": "Remove the background image from the hero section in HeroSection.tsx, replacing it with a solid color or gradient background while preserving all other content and styling",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
-    },
-    {
-      "id": "feature-remove-the-ccs-favicon-reference-so-the-site-no-longer-uses-the-generated-ccs-logo-favicon",
-      "title": "Remove the CCS favicon reference so the site no longer uses the generated CCS logo favicon.",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
     }
   ],
-  "new_feature_requests": [
-    {
-      "id": "AR-1",
-      "summary": "Remove/delete the CCS logo from the project",
-      "reqIds": [],
-      "status": "pending"
-    }
-  ],
-  "projectName": "Complete Construction Solutions",
+  "new_feature_requests": [],
+  "projectName": "Remove hero section background image",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

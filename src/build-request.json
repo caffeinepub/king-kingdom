@@ -1,67 +1,37 @@
 {
   "kind": "build_request",
-  "title": "Remove CCS logo from site",
-  "projectName": "Complete Construction Solutions",
+  "title": "Remove hero section background image",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Remove the CCS logo image from the header brand area so the navigation header displays brand text only (no logo image).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Delete logo"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Header navigation no longer renders /assets/generated/ccs-logo-icon.dim_256x256.png.",
-        "The header brand area still provides a clickable control to scroll to the Home section.",
-        "Header layout remains aligned and visually balanced on mobile and desktop breakpoints."
-      ]
-    },
-    {
       "id": "REQ-2",
-      "text": "Remove the CCS logo image from the footer brand block so the footer displays brand text only (no logo image).",
+      "text": "Remove the background image from the hero section in HeroSection.tsx, replacing it with a solid color or gradient background while preserving all other content and styling",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-user-final"
         ],
         "quotes": [
-          "Delete logo"
+          "remove hero section background pic"
         ]
       },
       "acceptanceCriteria": [
-        "Footer no longer renders /assets/generated/ccs-logo-icon.dim_256x256.png.",
-        "Footer brand block spacing/alignment looks correct without the image."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Remove the CCS favicon reference so the site no longer uses the generated CCS logo favicon.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Delete logo"
-        ]
-      },
-      "acceptanceCriteria": [
-        "frontend/index.html no longer references /assets/generated/ccs-favicon.dim_64x64.png as the favicon."
+        "Hero section no longer displays the cityscape background image",
+        "Hero section has an appropriate solid color or gradient background instead",
+        "All text, CTAs, and layout elements remain properly visible and styled",
+        "Section maintains its visual hierarchy and readability"
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/components/ui or any paths listed as immutable in SYSTEM_CONTEXT."
+    "Do not modify backend code",
+    "Preserve all existing hero section content (text, buttons, layout)",
+    "Maintain responsive design and mobile compatibility"
   ],
   "nonGoals": [
-    "Do not change any backend (Motoko) logic or data models.",
-    "Do not rename the company text or rewrite site copy; only remove logo imagery/favicon references."
+    "Redesigning the hero section layout",
+    "Changing hero section content or copy",
+    "Modifying other sections of the website"
   ],
   "imageRequirements": {
     "required": [],
