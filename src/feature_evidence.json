@@ -2,10 +2,28 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-remove-the-background-image-from-the-hero-section-in-herosection-tsx-replacing-it-with-a-solid-color-or-gradient-background-while-preserving-all-other-content-and-styling",
-      "featureTitle": "Remove the background image from the hero section in HeroSection.tsx, replacing it with a solid color or gradient background while preserving all other content and styling",
+      "featureId": "feature-update-the-main-footer-brand-block-left-column-to-include-the-existing-ccs-logo-image-and-align-it-with-the-footer-brand-text-matching-the-header-s-branding-pattern",
+      "featureTitle": "Update the main footer brand block (left column) to include the existing CCS logo image and align it with the footer brand text, matching the header’s branding pattern.",
       "files": [
-        "frontend/src/components/king-kingdom/sections/HeroSection.tsx"
+        "frontend/src/components/king-kingdom/Footer.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-footer-brand-logo-area-uses-consistent-styling-with-the-site-s-existing-design-system-spacing-typography-and-hover-focus-behavior-where-applicable-without-changing-existing-footer-content-or-links",
+      "featureTitle": "Ensure the footer brand/logo area uses consistent styling with the site’s existing design system (spacing, typography, and hover/focus behavior where applicable) without changing existing footer content or links.",
+      "files": [
+        "frontend/src/components/king-kingdom/Footer.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",

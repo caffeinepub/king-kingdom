@@ -1,40 +1,64 @@
 {
   "kind": "build_request",
-  "title": "Remove hero section background image",
+  "title": "Add logo to main footer brand area",
+  "projectName": "Complete Construction Solutions",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-2",
-      "text": "Remove the background image from the hero section in HeroSection.tsx, replacing it with a solid color or gradient background while preserving all other content and styling",
+      "id": "REQ-1",
+      "text": "Update the main footer brand block (left column) to include the existing CCS logo image and align it with the footer brand text, matching the header’s branding pattern.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-final"
+          "msg-3"
         ],
         "quotes": [
-          "remove hero section background pic"
+          "Footer main bhi add karo"
         ]
       },
       "acceptanceCriteria": [
-        "Hero section no longer displays the cityscape background image",
-        "Hero section has an appropriate solid color or gradient background instead",
-        "All text, CTAs, and layout elements remain properly visible and styled",
-        "Section maintains its visual hierarchy and readability"
+        "Footer left brand area renders the image /assets/generated/ccs-logo-square.dim_1024x1024.png with appropriate alt text (e.g., \"CCS Logo\").",
+        "Logo + brand text are horizontally aligned and visually balanced on desktop, and remain readable and well-spaced on mobile.",
+        "No changes are required to backend behavior or data models."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Ensure the footer brand/logo area uses consistent styling with the site’s existing design system (spacing, typography, and hover/focus behavior where applicable) without changing existing footer content or links.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Footer main bhi add karo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All existing footer content remains present (description, quick links, contact info, social links, copyright, and caffeine.ai attribution).",
+        "Footer layout remains responsive and does not overflow or clip at common breakpoints."
       ]
     }
   ],
   "constraints": [
-    "Do not modify backend code",
-    "Preserve all existing hero section content (text, buttons, layout)",
-    "Maintain responsive design and mobile compatibility"
+    "Do not modify files under frontend/src/components/ui or other frontend immutablePaths listed in SYSTEM_CONTEXT."
   ],
   "nonGoals": [
-    "Redesigning the hero section layout",
-    "Changing hero section content or copy",
-    "Modifying other sections of the website"
+    "Adding new footer sections beyond the existing three-column structure.",
+    "Changing contact data, social link URLs, or backend lead/contact storage behavior."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

@@ -1,22 +1,41 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove hero section background image",
+  "title": "Add CCS logo to footer brand area with header-consistent alignment",
   "requirements": [
     {
-      "id": "REQ-2",
-      "summary": "Remove the background image from the hero section and replace it with a solid color or gradient background while preserving all content and styling",
+      "id": "REQ-1",
+      "summary": "Add the existing CCS logo image to the footer left brand block and align it with the brand text similarly to the header.",
       "acceptanceCriteria": [
-        "Hero section no longer displays the cityscape background image",
-        "Hero section has an appropriate solid color or gradient background instead",
-        "All text, CTAs, and layout elements remain properly visible and styled",
-        "Section maintains its visual hierarchy and readability"
+        "Footer left brand area renders the image /assets/generated/ccs-logo-square.dim_1024x1024.png with appropriate alt text (e.g., \"CCS Logo\").",
+        "Logo + brand text are horizontally aligned and visually balanced on desktop, and remain readable and well-spaced on mobile.",
+        "No changes are required to backend behavior or data models."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/king-kingdom/sections/HeroSection.tsx",
+          "path": "frontend/src/components/king-kingdom/Footer.tsx",
           "operation": "modify",
-          "description": "Remove the background image styling from the hero section container and replace it with a solid navy color or navy-to-blue gradient background. Update the className to remove background-image related styles while preserving the overlay, positioning, and all other layout properties. Ensure text contrast and readability are maintained with the new background."
+          "description": "Update the left footer brand block to include the existing logo image at frontend/public/assets/generated/ccs-logo-square.dim_1024x1024.png with alt text \"CCS Logo\". Structure the brand area to match the header’s branding pattern (logo + two-line text) using the same layout approach (horizontal alignment, consistent gaps, and responsive sizing), while keeping the rest of the footer sections unchanged."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Ensure footer logo/brand styling is consistent with the existing design system without altering existing footer content or links.",
+      "acceptanceCriteria": [
+        "All existing footer content remains present (description, quick links, contact info, social links, copyright, and caffeine.ai attribution).",
+        "Footer layout remains responsive and does not overflow or clip at common breakpoints."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Adjust or extend existing global logo/brand styling (e.g., using/deriving from .logo-brand-wrapper and .logo-image) to ensure the footer brand/logo area has consistent spacing, typography alignment, and appropriate hover/focus-visible behavior on a dark footer background, without impacting other footer content."
+        },
+        {
+          "path": "frontend/src/components/king-kingdom/Footer.tsx",
+          "operation": "modify",
+          "description": "Apply design-system-consistent Tailwind classes (spacing/typography/hover/focus-visible where applicable) to the updated footer brand/logo area so it stays responsive and visually balanced at common breakpoints, while leaving all existing footer links and text content intact."
         }
       ]
     }
